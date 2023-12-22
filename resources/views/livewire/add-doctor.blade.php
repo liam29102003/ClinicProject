@@ -1,4 +1,4 @@
-<div class="container-fluid flex-grow-1 container-p-y bg-light">
+<div class="container-fluid flex-grow-1 container-p-y bg-danger">
     <h4 class="fw-bold py-3 mb-4">Appointment Form</h4>
     
 

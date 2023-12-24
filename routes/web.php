@@ -35,6 +35,7 @@ Route::get('/blogDetail',[PatientController::class,'blogDetail'])->name('blogDet
 Route::get('/doctor/add',[DoctorController::class,'add']);
 Route::post('/addDoctor',[PatientController::class,'addDoctor'])->name('doctor.store');
 Route::get('/doctor/list',[DoctorController::class,'index']);
+Route::get('/doctor/details/{doctor}',[DoctorController::class,'details'])->name('doctor.details');
 
 
 

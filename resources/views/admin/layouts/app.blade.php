@@ -150,7 +150,7 @@
                 </a>
               </li>
               <li class="menu-item ">
-                <a href="index.html" class="menu-link">
+                <a href="/doctor/list" wire:navigate class="menu-link">
                     <i class="fa-solid fa-user-doctor me-3"></i>
                   <div data-i18n="Analytics">Doctors</div>
                 </a>

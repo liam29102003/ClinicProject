@@ -17,7 +17,7 @@
             <th>Speciality</th>
             <th>Qualification</th>
             <th>Actions</th>
-          </tr>
+          </tr>w
         </thead>
         <tbody class="table-border-bottom-0">
             @foreach ($doctors as $doctor)
@@ -26,7 +26,7 @@
                 <td>{{$doctor->speciality}}</td>
                 <td><span class="badge bg-label-primary me-1">{{$doctor->qualification}}</span></td>
                 <td>
-                    <a href="" class=" text-warning"><i class="fa-solid fa-eye"></i></a>
+                    <a href="/doctor/details/{{$doctor->id}}" wire:navigate class=" text-warning"><i class="fa-solid fa-eye"></i></a>
                     <button type="button" class="btn text-danger" wire:click='changevalue({{$doctor->id}}, "Are you sure to delete")'  x-on:click=" $dispatch('open-modal');"  >
 
                       <i class="fa-solid fa-trash"></i></button>

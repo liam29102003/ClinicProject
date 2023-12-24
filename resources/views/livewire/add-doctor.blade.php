@@ -1,5 +1,5 @@
-<div class="container-fluid flex-grow-1 container-p-y bg-danger">
-    <h4 class="fw-bold py-3 mb-4">Appointment Form</h4>
+<div class="container-fluid flex-grow-1 container-p-y bg-light">
+    {{-- <h4 class="fw-bold py-3 mb-4">Appointment Form</h4> --}}
     
 
     <!-- Basic Layout & Basic with Icons -->
@@ -17,9 +17,7 @@
 
                         <div class="row mb-3">
                             @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
-                            </div>
+                            <livewire:alert>
                         @endif
 
                         </div>
@@ -110,8 +108,10 @@
                                 </div>
                         </div>
                         <div class="row justify-content-end">
-                            <div class="col-sm-9">
-                                <button type="submit" class="btn btn-primary">Send</button>
+                            <div class="col-sm-9 ">
+                                <button type="submit" class="btn btn-primary border-0" style="background: #16d4ad">Send
+                                    <span wire:loading><img src="{{asset('admin/assets/img/Spinner-1s-200px.svg')}}" alt="" width=30> </span>
+                                </button>
                             </div>
                         </div>
                     </form>

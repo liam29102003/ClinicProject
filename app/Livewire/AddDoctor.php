@@ -63,6 +63,7 @@ class AddDoctor extends Component
         $this->reset();
 
     }
+ 
     public function render()
     {
 

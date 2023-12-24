@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\user\PatientController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DoctorController;
+use App\Http\Controllers\user\PatientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,9 @@ Route::get('/doctor',[PatientController::class,'index']);
 Route::get('docDetail/{doctor}',[PatientController::class,'docDetail'])->name('docDetail');
 Route::get('/blogList',[PatientController::class,'blogList'])->name('blogList');
 Route::get('/blogDetail',[PatientController::class,'blogDetail'])->name('blogDetail');
-Route::get('/doctor/add',[PatientController::class,'admin']);
+Route::get('/doctor/add',[DoctorController::class,'add']);
 Route::post('/addDoctor',[PatientController::class,'addDoctor'])->name('doctor.store');
+Route::get('/doctor/list',[DoctorController::class,'index']);
+
+
 

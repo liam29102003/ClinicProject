@@ -62,12 +62,14 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{asset('admin/assets/js/config.js')}}"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  </head>
+    <link rel="stylesheet" href="{{asset('admin/assets/css/custom.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />  </head>
 
-  <body class="bg-light">
+    {{-- <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script> --}}
 
-    <div class="layout-wrapper layout-content-navbar ">
+  <body class="bg-light"   >
+
+    <div class="layout-wrapper layout-content-navbar "  >
         <div class="layout-container">
           <!-- Menu -->
   
@@ -290,23 +292,27 @@
   
         <!-- Overlay -->
         <div class="layout-overlay layout-menu-toggle"></div>
+
       </div>
-   
-    <!-- Core JS -->
+d    <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     @livewireScripts
-    <script src="assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="assets/vendor/libs/popper/popper.js"></script>
-    <script src="assets/vendor/js/bootstrap.js"></script>
-    <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <!-- Alpine.js -->
 
-    <script src="assets/vendor/js/menu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script src="{{asset('admin/assets/vendor/libs/jquery/jquery.js')}}"></script>
+    <script src="{{asset('admin/assets/vendor/libs/popper/popper.js')}}"></script>
+    <script src="{{asset('admin/assets/vendor/js/bootstrap.js')}}"></script>
+    <script src="{{asset('admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js')}}"></script>
+
+    <script src="{{asset('admin/assets/vendor/js/menu.js')}}"></script>
     <!-- endbuild -->
 
     <!-- Vendors JS -->
 
     <!-- Main JS -->
-    <script src="assets/js/main.js"></script>
+    <script src="{{asset('admin/assets/js/main.js')}}"></script>
 
     <!-- Page JS -->
 

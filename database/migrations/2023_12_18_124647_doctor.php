@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('speciality');
             $table->string('qualification');
             $table->string('gender');
-            
+            $table->string('image');
             $table->string('bio');
             $table->timestamps();
         });

@@ -7,7 +7,7 @@
           <div class="card mb-3 " style="height: 200px">
             <div class="row g-0">
               <div class="col-md-5 ">
-                <img class="card-img card-img-left " height='200' src="{{asset('user/assets/images/prof-Khin-TUn.jpg')}}" alt="Card image" />
+                <img class="card-img card-img-left " height='200' src="{{asset('storage/'.$doctor->image)}}" alt="Card image" />
               </div>
               <div class="col-md-7" >
                 <div class="card-body">

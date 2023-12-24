@@ -1,6 +1,6 @@
 <div class="container-fluid flex-grow-1 container-p-y bg-light">
     {{-- <h4 class="fw-bold py-3 mb-4">Appointment Form</h4> --}}
-    
+
 
     <!-- Basic Layout & Basic with Icons -->
     <div class="row">
@@ -17,8 +17,39 @@
 
                         <div class="row mb-3">
                             @if (session('status'))
-                            <livewire:alert>
-                        @endif
+                                <livewire:alert>
+                            @endif
+
+                        </div>
+
+                        
+
+
+                        <div class="row mb-2 w-25  p-0 tex-center" style="margin: auto">
+                            <div class="spinner-border ms-2 text-secondary text-center mb-3 " wire:loading
+                                wire:target='image' role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            @if ($image)
+                                <img style="border: 5px double; border-radius:10px " class="w-100"
+                                    src="{{ $image->temporaryUrl() }}" alt="Image Preview">
+                            @endif
+
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-3 col-form-label" for="basic-default-name"><i
+                                    class="fa-solid fa-signature me-2"></i>Image :</label>
+
+                            <div class="col-sm-9">
+                                <input type="file" class="form-control" id="basic-default-name" name='image'
+                                    wire:model='image' placeholder="John Doe" />
+                                <small class="text-danger">
+                                    @error('image')
+                                        {{ $message }}
+                                    @enderror
+                                </small>
+
+                            </div>
 
                         </div>
                         <div class="row mb-3">
@@ -28,7 +59,11 @@
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="basic-default-name" name='name'
                                     wire:model='name' placeholder="John Doe" />
-                                    <small class="text-danger">@error('name') {{ $message }} @enderror</small>
+                                <small class="text-danger">
+                                    @error('name')
+                                        {{ $message }}
+                                    @enderror
+                                </small>
 
                             </div>
 
@@ -40,7 +75,11 @@
                             <div class="col-sm-9">
                                 <input type="email" class="form-control" id="basic-default-name" name='email'
                                     wire:model='email' placeholder="JohnDoe@gmail.com" />
-                                    <small class="text-danger">@error('email') {{ $message }} @enderror</small>
+                                <small class="text-danger">
+                                    @error('email')
+                                        {{ $message }}
+                                    @enderror
+                                </small>
 
                             </div>
                         </div>
@@ -51,11 +90,15 @@
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="basic-default-name" name='phone'
                                     wire:model='phone' placeholder="09-*********" />
-                                    <small class="text-danger">@error('phone') {{ $message }} @enderror</small>
+                                <small class="text-danger">
+                                    @error('phone')
+                                        {{ $message }}
+                                    @enderror
+                                </small>
 
                             </div>
                         </div>
-                       
+
                         <div class="row mb-3">
                             <label class="col-sm-3 col-form-label" for="basic-default-name"><i
                                     class="fa-solid fa-stethoscope me-2"></i>Speciality :</label>
@@ -63,7 +106,11 @@
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="basic-default-speciality"
                                     placeholder="Neurologist" name='speciality' wire:model='speciality' />
-                                    <small class="text-danger">@error('speciality') {{ $message }} @enderror</small>
+                                <small class="text-danger">
+                                    @error('speciality')
+                                        {{ $message }}
+                                    @enderror
+                                </small>
 
                             </div>
                         </div>
@@ -73,8 +120,12 @@
 
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="basic-default-qa" placeholder="MBBS"
-                                    name='qualification'    wire:model='qualification' />
-                                    <small class="text-danger">@error('qualification') {{ $message }} @enderror</small>
+                                    name='qualification' wire:model='qualification' />
+                                <small class="text-danger">
+                                    @error('qualification')
+                                        {{ $message }}
+                                    @enderror
+                                </small>
 
                             </div>
                         </div>
@@ -90,11 +141,15 @@
                                     <option value="male">Male</option>
                                     <option value="female">Female</option>
                                 </select>
-                                <small class="text-danger">@error('gender') {{ $message }} @enderror</small>
+                                <small class="text-danger">
+                                    @error('gender')
+                                        {{ $message }}
+                                    @enderror
+                                </small>
 
                             </div>
                         </div>
-                       
+
 
 
                         <div class="row mb-3">
@@ -102,15 +157,25 @@
                                     class="fa-regular fa-file-lines me-2"></i>Bio :</label>
                             <div class="col-sm-9">
                                 <textarea id="basic-default-message" name='bio' class="form-control" placeholder="Brief Description Go Here"
-                                    aria-label="Hi, Do you have a moment to talk Joe?" aria-describedby="basic-icon-default-message2" wire:model='bio'></textarea>
-                                    <small class="text-danger">@error('bio') {{ $message }} @enderror</small>
+                                    aria-label="Hi, Do you have a moment to talk Joe?" aria-describedby="basic-icon-default-message2"
+                                    wire:model='bio'></textarea>
+                                <small class="text-danger">
+                                    @error('bio')
+                                        {{ $message }}
+                                    @enderror
+                                </small>
 
-                                </div>
+                            </div>
                         </div>
                         <div class="row justify-content-end">
                             <div class="col-sm-9 ">
-                                <button type="submit" class="btn btn-primary border-0" style="background: #16d4ad">Send
-                                    <span wire:loading><img src="{{asset('admin/assets/img/Spinner-1s-200px.svg')}}" alt="" width=30> </span>
+                                <button type="submit" class="btn btn-primary border-0 d-flex align-items-center"
+                                    style="background: #16d4ad">
+                                    <div>Send</div>
+
+                                    <div class="spinner-border ms-2" wire:loading wire:target='' role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
                                 </button>
                             </div>
                         </div>

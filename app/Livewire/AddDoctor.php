@@ -7,11 +7,14 @@ use App\Models\Doctor;
 use Livewire\Component;
 use App\Models\Schedule;
 use GuzzleHttp\Psr7\Request;
+use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
 use Illuminate\Support\Facades\Hash;
 
 class AddDoctor extends Component
 {
+    use WithFileUploads;
+
 
     #[Validate('required|min:3')]
 
@@ -37,11 +40,16 @@ class AddDoctor extends Component
     #[Validate('required|min:3')]
 
     public $password = 'EverCareDoctor';
+    #[Validate('required|min:3')]
+
+    public $image;
 
     public function save()
     {
         $validated = $this->validate();
         $hashedPassword = Hash::make($this->password);
+        $path = $this->image->storeAs('images', 'public');
+        // dd($path);
 
         Doctor::create(
             [
@@ -53,6 +61,8 @@ class AddDoctor extends Component
                 'email' => $this->email,
                 'phone' => $this->phone,
                 'password' => $hashedPassword,
+                'image' => $path,
+
                 'created_at' => now(),
                 'updated_at' => now(),
                 
@@ -60,7 +70,10 @@ class AddDoctor extends Component
             ]
         );
         session()->flash('status', 'Doctor successfully added.');
-        $this->reset();
+        $this->image='';
+        $this->reset('image', 'name','speciality', 'qualification', 'gender', 'bio', 'email', 'phone', 'password');
+
+        // $this->reset();
 
     }
  

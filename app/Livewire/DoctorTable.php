@@ -22,7 +22,7 @@ class DoctorTable extends Component
          if ($post) {
              $post->delete();
          }
-         session()->flash('status', 'Successfully deleted.');
+         session()->flash('status', 'Successfully deletedd.');
  
          // You can add a confirmation message or redirect to another page if needed.
      }

@@ -18,8 +18,11 @@ class DoctorController extends Controller
     }
     public function details(Doctor $doctor)
     
-    {   
-
+    { 
         return view('admin.doctor_details',compact('doctor'));
+    }
+    public function edit(Doctor $doctor)
+    {
+        return view('admin.doctor_edit',compact('doctor'));
     }
 }

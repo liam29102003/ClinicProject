@@ -41,10 +41,9 @@
             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"  @click="$dispatch('close-modal')">
               No
             </button>
-            <form action="" wire:submit='delete'>
-                @csrf
-            <button type="submit" class="btn btn-primary" @click="$dispatch('close-modal')">Yes</button>
-            </form>
+            
+            <button type="submit" class="btn btn-primary" @click="$dispatch('close-modal'); $wire.delete()">Yes</button>
+            
           </div>
         </div>
       </div>

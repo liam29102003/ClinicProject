@@ -32,10 +32,17 @@ Route::get('/doctor',[PatientController::class,'index']);
 Route::get('docDetail/{doctor}',[PatientController::class,'docDetail'])->name('docDetail');
 Route::get('/blogList',[PatientController::class,'blogList'])->name('blogList');
 Route::get('/blogDetail',[PatientController::class,'blogDetail'])->name('blogDetail');
-Route::get('/doctor/add',[DoctorController::class,'add']);
-Route::post('/addDoctor',[PatientController::class,'addDoctor'])->name('doctor.store');
-Route::get('/doctor/list',[DoctorController::class,'index']);
-Route::get('/doctor/details/{doctor}',[DoctorController::class,'details'])->name('doctor.details');
+
+Route::prefix('admin')->group(function () {
+    Route::prefix('doctor')->group(function () {
+        Route::get('/list',[DoctorController::class,'index'])->name('doctor.list');
+        Route::get('/add',[DoctorController::class,'add']);
+        Route::post('/addDoctor',[DoctorController::class,'addDoctor'])->name('doctor.store');
+        Route::get('/details/{doctor}',[DoctorController::class,'details'])->name('doctor.details');
+        Route::get('/edit/{doctor}',[DoctorController::class,'edit'])->name('doctor.edit');
+        Route::post('/update/{doctor}',[DoctorController::class,'update'])->name('doctor.update');
+    });
+});
 
 
 

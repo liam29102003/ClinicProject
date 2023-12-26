@@ -5,9 +5,11 @@ namespace App\Livewire;
 use App\Models\Doctor;
 use Livewire\Attributes\Reactive;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class DoctorTable extends Component
 {  
+    use WithPagination;
     // #[Reactive]
      public $text2='';
     //  #[Reactive]
@@ -43,7 +45,7 @@ class DoctorTable extends Component
         return view('livewire.doctor-table')
         ->with(
             [
-                'doctors' => Doctor::all()
+                'doctors' => Doctor::paginate(6)
             ]
         );;
     }

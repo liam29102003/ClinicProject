@@ -150,7 +150,7 @@
                 </a>
               </li>
               <li class="menu-item ">
-                <a href="/doctor/list" wire:navigate class="menu-link">
+                <a href="{{route('doctor.list')}}" wire:navigate  class="menu-link">
                     <i class="fa-solid fa-user-doctor me-3"></i>
                   <div data-i18n="Analytics">Doctors</div>
                 </a>
@@ -282,7 +282,39 @@
                 <!--/ Layout Demo -->
               </div>
               <!-- / Content -->
-  
+              <footer class="content-footer footer bg-white p-3 mt-3 m-4 rounded shadow">
+                <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                  <div class="mb-2 mb-md-0">
+                    ©
+                    2024
+                    , made with ❤️ by
+                    Group 2
+                  </div>
+                  <div>
+                    <div class="dropdown dropup footer-link me-3">
+                      <button
+                        type="button"
+                        class="btn btn-sm btn-outline-secondary dropdown-toggle"
+                        data-bs-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                      >
+                        Currency
+                      </button>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-dollar"></i> USD</a>
+                        <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-euro"></i> Euro</a>
+                        <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-pound"></i> Pound</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="javascript:void(0);"><i class="bx bx-bitcoin"></i> Bitcoin</a>
+                      </div>
+                    </div>
+                    <a href="javascript:void(0)" class="btn btn-sm btn-outline-danger"
+                        ><i class="bx bx-log-out-circle"></i> Logout</a
+                      >
+                  </div>
+                </div>
+              </footer>
               <div class="content-backdrop fade"></div>
             </div>
             <!-- Content wrapper -->
@@ -294,12 +326,12 @@
         <div class="layout-overlay layout-menu-toggle"></div>
 
       </div>
-d    <!-- Core JS -->
+      
+   <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     @livewireScripts
     <!-- Alpine.js -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
     <script src="{{asset('admin/assets/vendor/libs/jquery/jquery.js')}}"></script>
     <script src="{{asset('admin/assets/vendor/libs/popper/popper.js')}}"></script>

@@ -4,12 +4,12 @@
 <div>
     <div class="row mb-5 mt-5 ">
         <div class="col-md">
-          <div class="card mb-3 " style="height: 200px">
-            <div class="row g-0">
-              <div class="col-md-5 ">
+          <div class="card mb-3 " >
+            <div class="row ">
+              <div class="col-md-5 col-12">
                 <img class="card-img card-img-left " height='200' src="{{asset('storage/'.$doctor->image)}}" alt="Card image" />
               </div>
-              <div class="col-md-7" >
+              <div class="col-md-7 col-12" >
                 <div class="card-body">
                   <h5 class="card-title">{{$doctor->name}}</h5>
                   <p class="card-text">
@@ -43,7 +43,7 @@
         </div>
       </div>
       <div class="row mb-5 mt-5 ">
-        <div class="col-4 offset-4">
+        <div class="col-md-4 offset-md-4">
             <div class="text-center">
                 <h3>Contact</h3>
             </div>
@@ -61,7 +61,7 @@
                 </tr>
             </table>
             <div class="text-center">
-                <button type="submit" class="btn btn-primary" >Edit</button>
+                <a href="{{route('doctor.edit',$doctor->id)}}" wire:navigate type="submit" class="btn btn-primary" >Edit</a>
             </div>
            
 

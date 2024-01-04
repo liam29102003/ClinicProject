@@ -4,7 +4,7 @@
 <div>
     <div class="row mb-5 mt-5 ">
         <div class="col-md">
-          <div class="card mb-3 " >
+          <div class="card mb-3 " style="background-color:#F8F0C4 !important; color:#9d926a !important" >
             <div class="row ">
               <div class="col-md-5 col-12">
                 <img class="card-img card-img-left " height='200' src="{{asset('storage/'.$doctor->image)}}" alt="Card image" />
@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="col-md" >
-          <div class="card mb-3" style="height: 200px">
+          <div class="card mb-3"  style="background-color:#F8F0C4 !important; color:#9d926a !important; height: 200px" >
             <div class="row g-0">
               <div class="col-md">
                 <div class="card-body">
@@ -45,18 +45,19 @@
       <div class="row mb-5 mt-5 ">
         <div class="col-md-4 offset-md-4">
             <div class="text-center">
-                <h3>Contact</h3>
+                <h3  style="color:#9d926a !important" class="mb-2">Contact</h3>
+                <hr class="mb-3" style="margin:auto; width:40%; color:#9d926a">
             </div>
-            <table class="table table-striped ">
-                <tr>
+            <table class="table  ">
+                <tr  style="color:#9d926a !important">
                     <td ><i class="fa-solid fa-phone me-2"></i>Phone</td>
                     <td>:</td>
-                    <td><a href="tel:+{{$doctor->phone}}">{{$doctor->phone}}</a></td>
+                    <td><a href="tel:+{{$doctor->phone}}"  style="color:#9d926a !important">{{$doctor->phone}}</a></td>
                 </tr>
-                <tr>
+                <tr  style="color:#9d926a !important">
                     <td><i class="fa-solid fa-envelope me-2"></i>Email</td>
                     <td>:</td>
-                    <td><a href="mailto:{{$doctor->email}}">{{$doctor->email}}</a>
+                    <td><a href="mailto:{{$doctor->email}}"  style="color:#9d926a !important">{{$doctor->email}}</a>
                     </td>
                 </tr>
             </table>

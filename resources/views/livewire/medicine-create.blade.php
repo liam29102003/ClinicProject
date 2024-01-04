@@ -1,14 +1,14 @@
-<div class="container-fluid flex-grow-1 container-p-y bg-light">
+<div class="container-fluid flex-grow-1 container-p-y " >
     {{-- <h4 class="fw-bold py-3 mb-4">Appointment Form</h4> --}}
 
 
     <!-- Basic Layout & Basic with Icons -->
     <div class="row">
         <!-- Basic Layout -->
-        <div class="col-lg-6 offset-lg-3">
+        <div class="col-6 offset-3" >
             <div class="card mb-4" style="background-color:#F6E8B1 !important; color:#9d926a !important" >
                 <div class="card-header d-flex align-items-center justify-content-center">
-                    <h5 class="mb-0">Add Doctor</h5>
+                    <h5 class="mb-0">Add Medicine</h5>
                     <!-- <small class="text-muted float-end">Default label</small> -->
                 </div>
                 <div class="card-body">
@@ -65,18 +65,18 @@
                                     @enderror
                                 </small>
 
-                            </div>
+                        </div>
 
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-3 col-form-label" for="basic-default-name"><i
-                                    class="fa-solid fa-signature me-2"></i>Email :</label>
+                                    class="fa-solid fa-signature me-2"></i>price :</label>
 
                             <div class="col-sm-9">
-                                <input type="email" class="form-control" id="basic-default-name" name='email'
-                                    wire:model='email' placeholder="JohnDoe@gmail.com" />
+                                <input type="number" class="form-control" id="basic-default-name" name='price'
+                                    wire:model='price' placeholder="JohnDoe@gmail.com" />
                                 <small class="text-danger">
-                                    @error('email')
+                                    @error('price')
                                         {{ $message }}
                                     @enderror
                                 </small>
@@ -85,13 +85,13 @@
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-3 col-form-label" for="basic-default-name"><i
-                                    class="fa-solid fa-signature me-2"></i>Phone :</label>
+                                    class="fa-solid fa-signature me-2"></i>Quantity :</label>
 
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="basic-default-name" name='phone'
-                                    wire:model='phone' placeholder="09-*********" />
+                                <input type="number" class="form-control" id="basic-default-name" name='Quantity'
+                                    wire:model='quantity' placeholder="" />
                                 <small class="text-danger">
-                                    @error('phone')
+                                    @error('quantity')
                                         {{ $message }}
                                     @enderror
                                 </small>
@@ -101,13 +101,13 @@
 
                         <div class="row mb-3">
                             <label class="col-sm-3 col-form-label" for="basic-default-name"><i
-                                    class="fa-solid fa-stethoscope me-2"></i>Speciality :</label>
+                                    class="fa-solid fa-stethoscope me-2"></i>Manufacture</label>
 
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="basic-default-speciality"
-                                    placeholder="Neurologist" name='speciality' wire:model='speciality' />
+                                <input type="text" class="form-control" id="basic-default-Manufacture"
+                                    placeholder="Neurologist" name='manufacturer' wire:model='manufacturer' />
                                 <small class="text-danger">
-                                    @error('speciality')
+                                    @error('manufacturer')
                                         {{ $message }}
                                     @enderror
                                 </small>
@@ -116,13 +116,13 @@
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-3 col-form-label" for="basic-default-name"><i
-                                    class="fa-solid fa-graduation-cap "></i>Qualification :</label>
+                                    class="fa-solid fa-graduation-cap "></i>Side Effect :</label>
 
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="basic-default-qa" placeholder="MBBS"
-                                    name='qualification' wire:model='qualification' />
+                                    name='side' wire:model='side' />
                                 <small class="text-danger">
-                                    @error('qualification')
+                                    @error('side')
                                         {{ $message }}
                                     @enderror
                                 </small>
@@ -131,36 +131,20 @@
                         </div>
 
 
-
-                        <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label" for="basic-default-phone"><i
-                                    class="fa-solid fa-venus-mars me-2"></i>Gender :</label>
-
-                            <div class="col-sm-9">
-                                <select name="gender" id="" class="form-control" wire:model='gender'>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                </select>
-                                <small class="text-danger">
-                                    @error('gender')
-                                        {{ $message }}
-                                    @enderror
-                                </small>
-
-                            </div>
-                        </div>
+                        
+                        
 
 
 
                         <div class="row mb-3">
                             <label class="col-sm-3 col-form-label" for="basic-default-message"><i
-                                    class="fa-regular fa-file-lines me-2"></i>Bio :</label>
+                                    class="fa-regular fa-file-lines me-2"></i>Description :</label>
                             <div class="col-sm-9">
-                                <textarea id="basic-default-message" name='bio' class="form-control" placeholder="Brief Description Go Here"
+                                <textarea id="basic-default-message" name='description' class="form-control" placeholder="Brief Description Go Here"
                                     aria-label="Hi, Do you have a moment to talk Joe?" aria-describedby="basic-icon-default-message2"
-                                    wire:model='bio'></textarea>
+                                    wire:model='description'></textarea>
                                 <small class="text-danger">
-                                    @error('bio')
+                                    @error('description')
                                         {{ $message }}
                                     @enderror
                                 </small>

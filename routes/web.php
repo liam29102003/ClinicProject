@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\PharmacyController;
+use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\user\PatientController;
 
@@ -41,6 +43,22 @@ Route::prefix('admin')->group(function () {
         Route::get('/details/{doctor}',[DoctorController::class,'details'])->name('doctor.details');
         Route::get('/edit/{doctor}',[DoctorController::class,'edit'])->name('doctor.edit');
         Route::post('/update/{doctor}',[DoctorController::class,'update'])->name('doctor.update');
+    });
+    Route::prefix('staff')->group(function () {
+        // Route::get('/list',[DoctorController::class,'index'])->name('doctor.list');
+        Route::get('/add',[StaffController::class,'add'])->name('staff.add');
+        // Route::post('/addDoctor',[DoctorController::class,'addDoctor'])->name('doctor.store');
+        // Route::get('/details/{doctor}',[DoctorController::class,'details'])->name('doctor.details');
+        // Route::get('/edit/{doctor}',[DoctorController::class,'edit'])->name('doctor.edit');
+        // Route::post('/update/{doctor}',[DoctorController::class,'update'])->name('doctor.update');
+    });
+    Route::prefix('pharmacy')->group(function () {
+        Route::get('/list',[PharmacyController::class,'index'])->name('pharamcy.list');
+        Route::get('/add',[PharmacyController::class,'add'])->name('pharmacy.add');
+        // Route::post('/addDoctor',[DoctorController::class,'addDoctor'])->name('doctor.store');
+        Route::get('/details/{pharmacy}',[PharmacyController::class,'details'])->name('pharmacy.details');
+        // Route::get('/edit/{doctor}',[DoctorController::class,'edit'])->name('doctor.edit');
+        // Route::post('/update/{doctor}',[DoctorController::class,'update'])->name('doctor.update');
     });
 });
 

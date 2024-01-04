@@ -1,16 +1,13 @@
-/**
- * Main
- */
+
 
 'use strict';
 
-let menu, animate;
-
+var menu, animate;
 (function () {
   // Initialize menu
   //-----------------
 
-  let layoutMenuEl = document.querySelectorAll('#layout-menu');
+  var layoutMenuEl = document.querySelectorAll('#layout-menu');
   layoutMenuEl.forEach(function (element) {
     menu = new Menu(element, {
       orientation: 'vertical',
@@ -22,7 +19,7 @@ let menu, animate;
   });
 
   // Initialize menu togglers and bind click on each
-  let menuToggler = document.querySelectorAll('.layout-menu-toggle');
+  var menuToggler = document.querySelectorAll('.layout-menu-toggle');
   menuToggler.forEach(item => {
     item.addEventListener('click', event => {
       event.preventDefault();
@@ -31,8 +28,8 @@ let menu, animate;
   });
 
   // Display menu toggle (layout-menu-toggle) on hover with delay
-  let delay = function (elem, callback) {
-    let timeout = null;
+  var delay = function (elem, callback) {
+    var timeout = null;
     elem.onmouseenter = function () {
       // Set timeout to be a timer which will invoke callback after 300ms (not for small screen)
       if (!Helpers.isSmallScreen()) {
@@ -58,7 +55,7 @@ let menu, animate;
   }
 
   // Display in main menu when menu scrolls
-  let menuInnerContainer = document.getElementsByClassName('menu-inner'),
+  var menuInnerContainer = document.getElementsByClassName('menu-inner'),
     menuInnerShadow = document.getElementsByClassName('menu-inner-shadow')[0];
   if (menuInnerContainer.length > 0 && menuInnerShadow) {
     menuInnerContainer[0].addEventListener('ps-scroll-y', function () {

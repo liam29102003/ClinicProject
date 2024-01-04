@@ -48,7 +48,7 @@ class AddDoctor extends Component
     {
         $validated = $this->validate();
         $hashedPassword = Hash::make($this->password);
-        $path = $this->image->storeAs('images', 'public');
+        $path = $this->image->store('images', 'public');
         // dd($path);
 
         Doctor::create(

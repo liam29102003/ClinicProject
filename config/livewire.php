@@ -25,6 +25,8 @@ return [
     | It is also used if you choose to omit a component's render() method.
     |
     */
+    'base_url' => 'CLINICPROJECT',
+
 
     'view_path' => resource_path('views/livewire'),
 

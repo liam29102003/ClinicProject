@@ -2,27 +2,24 @@
 
 namespace App\Livewire;
 
-use App\Models\Doctor;
-use Illuminate\Foundation\Testing\WithoutEvents;
-use Livewire\Attributes\Reactive;
 use Livewire\Component;
+use App\Models\Pharmacy;
 use Livewire\WithPagination;
 
-class DoctorTable extends Component
-{  
-    
-    use  WithPagination;
+class MedicineList extends Component
+{
+    use WithPagination;
     // #[Reactive]
-    public $funName="delete";
      public $text2='';
     //  #[Reactive]
      public $text='';
+     public $search='';
+    public $funName="medicineDeletedd";
 
-    public $search='';
      public function delete()
      {
          // dd($this->text2);
-         $post = Doctor::find($this->text2);
+         $post = Pharmacy::find($this->text2);
  
          if ($post) {
              $post->delete();
@@ -41,15 +38,12 @@ class DoctorTable extends Component
 
         $this->text2 = $id;
     }
-   
     public function render()
     {
-
-        return view('livewire.doctor-table')
-        ->with(
+        return view('livewire.medicine-list')->with(
             [
-                'doctors' => Doctor::where('name', 'like', '%' . $this->search . '%')->paginate(6)
+                'medicine' => Pharmacy::where('name', 'like', '%' . $this->search . '%')->paginate(6)
             ]
-        );;
+        );
     }
 }

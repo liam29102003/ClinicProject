@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-<livewire:doctor-table>
+<livewire:medicine-list/>
     
 <script>
     window.Livewire.on('openModal', () => {

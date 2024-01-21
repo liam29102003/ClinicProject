@@ -19,6 +19,8 @@ class DoctorTable extends Component
      public $text='';
 
     public $search='';
+    public $orderName ="name";
+     public $type = "asc";
      public function delete()
      {
          // dd($this->text2);
@@ -41,14 +43,19 @@ class DoctorTable extends Component
 
         $this->text2 = $id;
     }
-   
+    public function sorting($name)
+    {
+        
+        $this->orderName = $name;
+        $this->type=$this->type === "asc" ? "desc" : "asc";
+    }
     public function render()
     {
 
         return view('livewire.doctor-table')
         ->with(
             [
-                'doctors' => Doctor::where('name', 'like', '%' . $this->search . '%')->paginate(6)
+                'doctors' => Doctor::where('name', 'like', '%' . $this->search . '%')->orderBy($this->orderName,$this->type)->paginate(6)
             ]
         );;
     }

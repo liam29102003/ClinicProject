@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Schedule extends Model
 {
     use HasFactory;
+    protected $fillable=['day','to','from','doctor_id'];
+    public function doctor()
+    {
+        return $this->belongsTo(Doctor::class);
+    }
 }

@@ -1,4 +1,4 @@
-<div class="container-fluid flex-grow-1 container-p-y bg-light">
+<div class="container-fluid flex-grow-1 container-p-y" style="background-color:#fffdd2">
     {{-- <h4 class="fw-bold py-3 mb-4">Appointment Form</h4> --}}
 
 
@@ -6,11 +6,9 @@
     <div class="row">
         <!-- Basic Layout -->
         <div class="col-lg-6 offset-lg-3">
-            <div class="card mb-4" style="background-color:#F6E8B1 !important; color:#9d926a !important" >
-                <div class="card-header d-flex align-items-center justify-content-center">
-                    <h5 class="mb-0">Add Doctor</h5>
-                    <!-- <small class="text-muted float-end">Default label</small> -->
-                </div>
+            <div class="card mb-4" style="background-color:#F6E8B1; color:#9d926a !important" >
+                <div class="card-header text-center pb-0"><h3 class="mb-0" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:#9d926a">Add New Doctor</h3></div>
+
                 <div class="card-body">
                     <form method="post" wire:submit='save' action="" enctype="multipart/form-data">
                         @csrf
@@ -116,7 +114,7 @@
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-3 col-form-label" for="basic-default-name"><i
-                                    class="fa-solid fa-graduation-cap "></i>Qualification :</label>
+                                    class="fa-solid fa-graduation-cap "></i>Qualification:</label>
 
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="basic-default-qa" placeholder="MBBS"
@@ -169,8 +167,8 @@
                         </div>
                         <div class="row justify-content-end">
                             <div class="col-sm-9 ">
-                                <button type="submit" class="btn btn-primary border-0 d-flex align-items-center"
-                                    style="background: #D4CAA3 ">
+                                <button type="submit" class="btn btn-primary  d-flex align-items-center"
+                                    style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
                                     <div>Send</div>
 
                                     <div class="spinner-border ms-2" wire:loading wire:target='' role="status">

@@ -17,12 +17,13 @@ class DoctorController extends Controller
         return view('admin.doctor_create');
     }
     public function details(Doctor $doctor)
-    
     { 
+        // dd($doctor->schedule[0]->day);
         return view('admin.doctor_details',compact('doctor'));
     }
     public function edit(Doctor $doctor)
     {
         return view('admin.doctor_edit',compact('doctor'));
     }
+    
 }

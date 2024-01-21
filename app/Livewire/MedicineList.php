@@ -14,6 +14,8 @@ class MedicineList extends Component
     //  #[Reactive]
      public $text='';
      public $search='';
+     public $orderName ="name";
+     public $type = "asc";
     public $funName="medicineDeletedd";
 
      public function delete()
@@ -38,11 +40,17 @@ class MedicineList extends Component
 
         $this->text2 = $id;
     }
+    public function sorting($name)
+    {
+        
+        $this->orderName = $name;
+        $this->type=$this->type === "asc" ? "desc" : "asc";
+    }
     public function render()
     {
         return view('livewire.medicine-list')->with(
             [
-                'medicine' => Pharmacy::where('name', 'like', '%' . $this->search . '%')->paginate(6)
+                'medicine' => Pharmacy::where('name', 'like', '%' . $this->search . '%')->orderBy($this->orderName,$this->type)->paginate(6)
             ]
         );
     }

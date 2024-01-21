@@ -1,73 +1,103 @@
 @extends('admin.layouts.app')
 @section('content')
+    <div class="doctor-profile py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card mb-3 shadow-sm" style="background-color: #F6E8B1 !important; color:#9d926a !important">
+                        <div class="card-header bg-transparent text-center">
+                            <img class="profile_img" src="{{ asset('storage/' . $doctor->image) }}" alt="doctor dp">
+                            <h3 class="mt-3 mb-0">Dr.{{ $doctor->name }}</h3>
 
-<div>
-    <div class="row mb-5 mt-5 ">
-        <div class="col-md">
-          <div class="card mb-3 " style="background-color:#F8F0C4 !important; color:#9d926a !important" >
-            <div class="row ">
-              <div class="col-md-5 col-12">
-                <img class="card-img card-img-left " height='200' src="{{asset('storage/'.$doctor->image)}}" alt="Card image" />
-              </div>
-              <div class="col-md-7 col-12" >
-                <div class="card-body">
-                  <h5 class="card-title">{{$doctor->name}}</h5>
-                  <p class="card-text">
-                    {{$doctor->speciality}}
-                  </p>
-                  <p class="card-text">
-                    {{$doctor->qualification}}
-                  </p>
-                 
-                  <p class="card-text"><small class="text-muted">Last updated {{$doctor->updated_at}}</small></p>
+                            <h5 class="mb-0 mt-2">Cardiologist</h5>
+                            <a href="{{ route('doctor.edit', $doctor->id) }}" wire:navigate type="submit"
+                                class="btn mt-2 btn-primary w-25 text-center mx-auto "
+                                style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
+                                <div>Edit</div>
+
+                            </a>
+                            <br>
+                            <a href="{{ route('doctor.edit', $doctor->id) }}" wire:navigate type="submit"
+                                class="btn mt-2 btn-primary w-75 text-center mx-auto "
+                                style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
+                                <div>Add Schedule</div>
+                            </a>
+                        </div>
+
+                    </div>
+                    
+                    <livewire:add-schedule :doctor_id="$doctor->id" />
+
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md" >
-          <div class="card mb-3"  style="background-color:#F8F0C4 !important; color:#9d926a !important; height: 200px" >
-            <div class="row g-0">
-              <div class="col-md">
-                <div class="card-body">
-                  <h5 class="card-title text-center text-decoration-underline">Bio</h5>
-                  <p class="card-text">
-                    {{$doctor->bio}}
-                  </p>
-                  <p class="card-text"><small class="text-muted">Last updated {{$doctor->updated_at}}</small></p>
+                <div class="col-lg-8">
+                    <div class="card shadow-sm" style="background-color: #F6E8B1 !important; color:#9d926a !important">
+                        <div class="card-header bg-transparent border-0">
+                            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
+                        </div>
+                        <div class="card-body pt-0">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th width="30%">Qualification</th>
+                                    <td width="2%">:</td>
+                                    <td>{{ $doctor->qualification }}</td>
+                                </tr>
+                                <tr>
+                                    <th width="30%">Specialization</th>
+                                    <td width="2%">:</td>
+                                    <td>{{ $doctor->speciality }}</td>
+                                </tr>
+                                <tr>
+                                    <th width="30%">Experience</th>
+                                    <td width="2%">:</td>
+                                    <td>10 years</td>
+                                </tr>
+                                <tr>
+                                    <th width="30%">Gender</th>
+                                    <td width="2%">:</td>
+                                    <td>{{ $doctor->gender }}</td>
+                                </tr>
+                                <tr>
+                                    <th width="30%">Schedule</th>
+                                    <td width="2%">:</td>
+                                    <td>
+                                        @foreach ($doctor->schedule as $schedule)
+                                            <p class="mb-0">{{ $schedule->day }}:{{ $schedule->from }} -
+                                                {{ $schedule->to }}</p>
+                                        @endforeach
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th width="30%">Joined Date</th>
+                                    <td width="2%">:</td>
+                                    <td>{{ $doctor->created_at }}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div style="height: 26px"></div>
+                    <div class="card shadow-sm" style="background-color: #F6E8B1 !important; color:#9d926a !important">
+                        <div class="card-header bg-transparent border-0">
+                            <h3 class="mb-0"><i class="fas fa-map-marked-alt pr-1"></i>Contact Information</h3>
+                        </div>
+                        <div class="card-body pt-0">
+                            <table class="table table-bordered ">
+                                <tr>
+                                    <th width="30%">Phone</th>
+                                    <td width="2%">:</td>
+                                    <td>{{ $doctor->phone }}</td>
+                                </tr>
+                                <tr>
+                                    <th width="30%">Email</th>
+                                    <td width="2%">:</td>
+                                    <td>{{ $doctor->email }}</td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
                 </div>
-              </div>
-               
             </div>
-          </div>
         </div>
-      </div>
-      <div class="row mb-5 mt-5 ">
-        <div class="col-md-4 offset-md-4">
-            <div class="text-center">
-                <h3  style="color:#9d926a !important" class="mb-2">Contact</h3>
-                <hr class="mb-3" style="margin:auto; width:40%; color:#9d926a">
-            </div>
-            <table class="table  ">
-                <tr  style="color:#9d926a !important">
-                    <td ><i class="fa-solid fa-phone me-2"></i>Phone</td>
-                    <td>:</td>
-                    <td><a href="tel:+{{$doctor->phone}}"  style="color:#9d926a !important">{{$doctor->phone}}</a></td>
-                </tr>
-                <tr  style="color:#9d926a !important">
-                    <td><i class="fa-solid fa-envelope me-2"></i>Email</td>
-                    <td>:</td>
-                    <td><a href="mailto:{{$doctor->email}}"  style="color:#9d926a !important">{{$doctor->email}}</a>
-                    </td>
-                </tr>
-            </table>
-            <div class="text-center">
-                <a href="{{route('doctor.edit',$doctor->id)}}" wire:navigate type="submit" class="btn btn-primary" >Edit</a>
-            </div>
-           
-
-        </div>
-      </div>
-</div>
-
+    </div>
 @endsection

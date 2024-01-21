@@ -5,12 +5,12 @@
     <!-- Basic Layout & Basic with Icons -->
     <div class="row">
         <!-- Basic Layout -->
-        <div class="col-6 offset-3 ">
+        <div class="col-6 offset-3">
             <div class="card mb-4" style="background:#F6E8B1;">
-                <div class="card-header text-center pb-0"><h3 class="mb-0" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:#9d926a">Edit Doctor</h3></div>
+                <div class="card-header text-center pb-0"><h3 class="mb-0" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; color:#9d926a">Edit Medicine</h3></div>
 
                 <div class="card-body">
-                    <form method="post" wire:submit='save({{$doctor->id}})' action="" enctype="multipart/form-data">
+                    <form method="post" wire:submit='save({{$medicine->id}})' action="" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
@@ -32,7 +32,7 @@
                                 <img style="border: 5px double; border-radius:10px " class="w-100"
                                     src="{{ $image->temporaryUrl() }}" alt="Image Preview">
                                 @else
-                                <img src="{{asset('storage/'.$doctor->image)}}"  alt="">
+                                <img src="{{asset('storage/'.$medicine->image)}}"  alt="">
                                     
                             @endif
 
@@ -43,7 +43,7 @@
 
                             <div class="col-sm-9">
                                 <input type="file" class="form-control" id="basic-default-name" name='image'
-                                    wire:model='image' placeholder="John Doe" value="{{$doctor->image}}/>
+                                    wire:model='image' placeholder="John Doe" value="{{$medicine->image}}/>
                                 <small class="text-danger">
                                     @error('image')
                                         {{ $message }}
@@ -59,7 +59,7 @@
 
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="basic-default-name" name='name'
-                                    wire:model='name' placeholder="John Doe" value="{{$doctor->name}}"/>
+                                    wire:model='name' placeholder="John Doe" value="{{$medicine->name}}"/>
                                 <small class="text-danger">
                                     @error('name')
                                         {{ $message }}
@@ -71,13 +71,13 @@
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-3 col-form-label" for="basic-default-name"><i
-                                    class="fa-solid fa-signature me-2"></i>Email :</label>
+                                    class="fa-solid fa-signature me-2"></i>Price :</label>
 
                             <div class="col-sm-9">
-                                <input type="email" class="form-control" id="basic-default-name" name='email'
-                                    wire:model='email' placeholder="JohnDoe@gmail.com" value="{{$doctor->email}}"/>
+                                <input type="number" class="form-control" id="basic-default-name" name='number'
+                                    wire:model='number' placeholder="JohnDoe@gmail.com" value="{{$medicine->price}}"/>
                                 <small class="text-danger">
-                                    @error('email')
+                                    @error('price')
                                         {{ $message }}
                                     @enderror
                                 </small>
@@ -86,94 +86,65 @@
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-3 col-form-label" for="basic-default-name"><i
-                                    class="fa-solid fa-signature me-2"></i>Phone :</label>
+                                    class="fa-solid fa-signature me-2"></i>Quantity :</label>
 
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="basic-default-name" name='phone'
-                                    wire:model='phone' placeholder="09-*********" value="{{$doctor->phone}}"/>
+                                    wire:model='quantity' placeholder="09-*********" value="{{$medicine->quantity}}"/>
                                 <small class="text-danger">
-                                    @error('phone')
+                                    @error('quantity')
                                         {{ $message }}
                                     @enderror
                                 </small>
 
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-3 col-form-label" for="basic-default-name" style="font-size:10px"><i
+                                    class="fa-solid fa-signature me-2" ></i>Manufacturer:</label>
 
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="basic-default-name" name='manufacturer'
+                                    wire:model='manufacturer' placeholder="" value="{{$medicine->manufacturer}}"/>
+                                <small class="text-danger">
+                                    @error('manufacturer')
+                                        {{ $message }}
+                                    @enderror
+                                </small>
+
+                            </div>
+                        </div>
                         <div class="row mb-3">
                             <label class="col-sm-3 col-form-label" for="basic-default-name"><i
-                                    class="fa-solid fa-stethoscope me-2"></i>Speciality :</label>
+                                    class="fa-solid fa-signature me-2"></i>SideEffect :</label>
 
                             <div class="col-sm-9">
-                                <input type="text" class="form-control" id="basic-default-speciality"
-                                    placeholder="Neurologist" name='speciality' wire:model='speciality'value="{{$doctor->speciality}}" />
+                                <input type="text" class="form-control" id="basic-default-name" name='side'
+                                    wire:model='side' placeholder="" value="{{$medicine->side}}"/>
                                 <small class="text-danger">
-                                    @error('speciality')
+                                    @error('side')
                                         {{ $message }}
                                     @enderror
                                 </small>
 
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label" for="basic-default-name"><i
-                                    class="fa-solid fa-graduation-cap "></i>Qualification :</label>
-
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" id="basic-default-qa" placeholder="MBBS"
-                                    name='qualification' wire:model='qualification' value="{{$doctor->qualification}}"/>
-                                <small class="text-danger">
-                                    @error('qualification')
-                                        {{ $message }}
-                                    @enderror
-                                </small>
-
-                            </div>
-                        </div>
-
-
-
-                        <div class="row mb-3">
-                            <label class="col-sm-3 col-form-label" for="basic-default-phone"><i
-                                    class="fa-solid fa-venus-mars me-2"></i>Gender :</label>
-
-                            <div class="col-sm-9">
-                                <select name="gender" id="" class="form-control" wire:model='gender'>
-                                    @if ($doctor->gender === 'male')
-                                    <option value="male" selected>Male</option>
-                                    <option value="female">Female</option>
-                                    @else
-                                    <option value="male">Male</option>
-                                    <option value="female" selected>Female</option>
-                                    @endif
-                                   
-                                </select>
-                                <small class="text-danger">
-                                    @error('gender')
-                                        {{ $message }}
-                                    @enderror
-                                </small>
-
-                            </div>
-                        </div>
-
-
-
                         <div class="row mb-3">
                             <label class="col-sm-3 col-form-label" for="basic-default-message"><i
-                                    class="fa-regular fa-file-lines me-2"></i>Bio :</label>
+                                    class="fa-regular fa-file-lines me-2"></i>Description :</label>
                             <div class="col-sm-9">
                                 <textarea id="basic-default-message" name='bio' class="form-control" placeholder="Brief Description Go Here"
                                     aria-label="Hi, Do you have a moment to talk Joe?" aria-describedby="basic-icon-default-message2"
-                                    wire:model='bio'>{{$doctor->bio}}</textarea>
+                                    wire:model='description'>{{$medicine->description}}</textarea>
                                 <small class="text-danger">
-                                    @error('bio')
+                                    @error('description')
                                         {{ $message }}
                                     @enderror
                                 </small>
 
                             </div>
                         </div>
+
                         <div class="row justify-content-end">
                             <div class="col-sm-9 ">
                                 <button type="submit" class="btn btn-primary border-0 d-flex align-items-center"

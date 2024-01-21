@@ -1,52 +1,58 @@
 <div>
     <div class="row mb-3">
-        <label class="col-sm-3 col-form-label" for="basic-default-phone"><i
-                class="fa-solid fa-venus-mars me-2"></i>Days</label>
-
-        <div class="col-sm-9">
-            <select name="day" id="" class="form-control"  wire:model.live='day'>
-                <option value="">Choose Day</option>
-
-                <option value="monday">Monday</option>
-                <option value="tuesday">TuesDay</option>
-                <option value="wednesday">Wednesday</option>
-                <option value="thursday">thursday</option>
-                <option value="friday">Friday</option>
-                <option value="saturday">Saturday</option>
-                <option value="sunday">Sunday</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="row mb-3">
-        <label class="col-sm-3 col-form-label" for="basic-default-phone"><i
-                class="fa-solid fa-venus-mars me-2"></i>Gender :</label>
-
-        <div class="col-sm-9">
-            <select name="gender" id="" class="form-control">
-                @foreach ($rooms as $room)
-                    <option value="{{ $room->id }}">{{ $room->name }}</option>
-                @endforeach
-            </select>
-        </div>
-    </div>
-    <div class="mb-3 row d-flex justify-content-center">
-        <div class="w-50">
-            <label for="html5-time-input" class=" col-form-label"><i
-                    class="fa-solid fa-clock me-2"></i>Start</label>
-            <div class="">
-                <input class="form-control" type="time" value="12:30:00" id="html5-time-input"
-                    name='from' wire:model.live='from'/>
-            </div>
-        </div>
-        <div class="w-50">
-            <label for="html5-time-input" class=" col-form-label"><i
-                    class="fa-regular fa-clock me-2"></i>End</label>
-            <div class="">
-                <input class="form-control" type="time" value="12:30:00" id="html5-time-input"
-                    name='to' wire:model.live='to'/>
-            </div>
-        </div>
+        @if (session('status'))
+            <livewire:alert>
+        @endif
 
     </div>
+    <form  wire:submit.prevent="store">
+        @csrf
+        <table class="table">
+            <tr>
+                <td><label for="" class="">Day</label></td>
+                <td>:</td>
+                <td>
+                    <select name="" wire:model='day' id="" class="form-select form-select-md mb-2 ">
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="" class="">From</label></td>
+                <td>:</td>
+                <td>
+                    <input type="time" wire:model='from' name="" id="" class="form-control form-control-md mb-2">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="" class="">To</label></td>
+                <td>:</td>
+                <td>
+                    <input type="time" wire:model='to' name="" id="" class="form-control form-control-md mb-2">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" class="text-center border-0">
+                    <button type="submit" class="btn btn-primary  d-flex align-items-center"
+                    style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
+                    <div>Add</div>
+
+                    <div class="spinner-border ms-2" wire:loading wire:target='' role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </button>
+            </td>
+            </tr>
+        </table>
+           
+        
+        
+
+    </form>
 </div>

@@ -43,6 +43,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/details/{doctor}',[DoctorController::class,'details'])->name('doctor.details');
         Route::get('/edit/{doctor}',[DoctorController::class,'edit'])->name('doctor.edit');
         Route::post('/update/{doctor}',[DoctorController::class,'update'])->name('doctor.update');
+        Route::get('schedule/{doctor}',[DoctorController::class,'schedule'])->name('doctor.schedule');
+        Route::post('schedule/{doctor}',[DoctorController::class,'storeSchedule'])->name('doctor.storeSchedule');
     });
     Route::prefix('staff')->group(function () {
         // Route::get('/list',[DoctorController::class,'index'])->name('doctor.list');
@@ -57,7 +59,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/add',[PharmacyController::class,'add'])->name('pharmacy.add');
         // Route::post('/addDoctor',[DoctorController::class,'addDoctor'])->name('doctor.store');
         Route::get('/details/{pharmacy}',[PharmacyController::class,'details'])->name('pharmacy.details');
-        // Route::get('/edit/{doctor}',[DoctorController::class,'edit'])->name('doctor.edit');
+        Route::get('/edit/{pharmacy}',[PharmacyController::class,'edit'])->name('pharmacy.edit');
         // Route::post('/update/{doctor}',[DoctorController::class,'update'])->name('doctor.update');
     });
 });

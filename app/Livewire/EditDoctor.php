@@ -38,6 +38,7 @@ public $image;
     #[Validate('required|min:3')]
 
     public $password = 'EverCareDoctor';
+    public $oldImage ;
     // #[Validate('required|min:3')]
 
     public function mount($doctor)
@@ -50,11 +51,13 @@ public $image;
         $this->bio = $doctor->bio;
         $this->email = $doctor->email;
         $this->phone = $doctor->phone;
-        // $this->image = $doctor->image;
+
+        $this->oldImage = $doctor->image;
         // dd($this->image);
     }
     public function save(Doctor $d)
     {
+        // dd($this->oldImage);
         $d->name = $this->name;
         $d->email = $this->email;
         $d->phone = $this->phone;
@@ -62,8 +65,10 @@ public $image;
         $d->qualification = $this->qualification;
         $d->gender = $this->gender;
         $d->bio = $this->bio;
-
+        if($this->image)
         $path = $this->image->store('images', 'public');
+        else
+        $path = $this->oldImage; 
         // dd($path);
 
         $d->image = $path;

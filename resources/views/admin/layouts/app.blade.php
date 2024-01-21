@@ -44,63 +44,67 @@
     />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="{{asset('admin/assets/vendor/fonts/boxicons.css')}}" />
+    <link rel="stylesheet" href="{{ asset('admin/assets/vendor/fonts/boxicons.css') }}" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="{{asset('admin/assets/vendor/css/core.css')}}" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="{{asset('admin/assets/vendor/css/theme-default.css')}}" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="{{ asset('admin/assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="{{ asset('admin/assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
     {{-- <link rel="stylesheet" href="{{asset('admin/assets/css/demo.css')}}" /> --}}
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="{{asset('admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css')}}" />
+    <link rel="stylesheet" href="{{ asset('admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
 
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="{{asset('admin/assets/vendor/js/helpers.js')}}" data-navigate-track></script>
+    <script src="{{ asset('admin/assets/vendor/js/helpers.js') }}" data-navigate-track></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="{{asset('admin/assets/js/config.js')}}" data-navigate-track></script>
-    <link rel="stylesheet" href="{{asset('admin/assets/css/custom.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
+    <script src="{{ asset('admin/assets/js/config.js') }}" data-navigate-track></script>
+    <link rel="stylesheet" href="{{ asset('admin/assets/css/custom.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script>
-      // JavaScript control for the dropdown
-      document.addEventListener('livewire:navigated', function () {
-        var dropdownButton = document.getElementById('hello');
-        var dropdownMenu = document.querySelector('.dropdown-menu1');
-        console.log('Hello')
+        // JavaScript control for the dropdown
+        document.addEventListener('livewire:navigated', function() {
+            var dropdownButton = document.getElementById('hello');
+            var dropdownMenu = document.querySelector('.dropdown-menu1');
+            console.log('Hello')
 
-        dropdownButton.addEventListener('click', function () {
-          // Toggle the 'show' class to display/hide the dropdown menu
-          dropdownMenu.classList.toggle('d-none');
-        });
-    
-        // Close the dropdown when clicking outside of it
-        document.addEventListener('click', function (event) {
-          if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-            dropdownMenu.classList.add('d-none');
-          }
-        });
-        var dropdownButton1 = document.getElementById('hello1');
-        var dropdownMenu2 = document.querySelector('.dropdown-menu2');
-        console.log('Hello')
+            dropdownButton.addEventListener('click', function() {
+                // Toggle the 'show' class to display/hide the dropdown menu
+                dropdownMenu.classList.toggle('d-none');
+            });
 
-        dropdownButton1.addEventListener('click', function () {
-          // Toggle the 'show' class to display/hide the dropdown menu
-          dropdownMenu2.classList.toggle('d-none');
+            // Close the dropdown when clicking outside of it
+            document.addEventListener('click', function(event) {
+                if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.classList.add('d-none');
+                }
+            });
+            var dropdownButton1 = document.getElementById('hello1');
+            var dropdownMenu2 = document.querySelector('.dropdown-menu2');
+            console.log('Hello')
+
+            dropdownButton1.addEventListener('click', function() {
+                // Toggle the 'show' class to display/hide the dropdown menu
+                dropdownMenu2.classList.toggle('d-none');
+            });
+
+            // Close the dropdown when clicking outside of it
+            document.addEventListener('click', function(event) {
+                if (!dropdownButton1.contains(event.target) && !dropdownMenu2.contains(event.target)) {
+                    dropdownMenu2.classList.add('d-none');
+                }
+            });
         });
-    
-        // Close the dropdown when clicking outside of it
-        document.addEventListener('click', function (event) {
-          if (!dropdownButton2.contains(event.target) && !dropdownMenu2.contains(event.target)) {
-            dropdownMenu2.classList.add('d-none');
-          }
-        });
-      });
     </script>
   <style>
-    
+    .select{
+      background-color:#FFFDD1 !important;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    }
     li a{
       margin: :30px;
       border-radius: 10px;
@@ -113,13 +117,45 @@
       background-color:#9d926a !important;
       color:white !important
     }
+    input, select, textarea{
+      border-color: #9d926a !important;
+    }
+    th{
+      transition: all 0.4s ease-in-out;
+    }
+    th:hover{
+      cursor: pointer;
+      background-color:#F6E8B1
+    }
+    .profile_img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .doctor-profile {
+            font-family: 'Lato', sans-serif;
+            margin-top: 10px;
+        }
+        .card {
+            border-radius: 10px;
+            
+        }
+        .rating {
+            color: #f8ce0b;
+        }
+        .table-bordered
+        {
+          border: 1px solid #9d926a !important;
+        }
+
   </style>
   @livewireStyles
   </head>
 
     {{-- <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script> --}}
 
-  <body style="background-color: #FFFEF2"   >
+  <body style="background-color: #fffdd2"   >
 
     <div class="layout-wrapper layout-content-navbar "  >
         <div class="layout-container">
@@ -127,49 +163,54 @@
   
           <aside id="layout-menu" class="layout-menu menu-vertical menu shadow" style="background-color: #F6E8B1">
             <div class="app-brand demo text-center" style="margin: auto">
-              <a href="#" class="app-brand-link mt-3" style=" padding-right: 2rem;
-              padding-left: 2rem;">
-                <span class="app-brand-logo demo fs-2" style=" display: block;
+              <a href="#" class="app-brand-link mt-3" >
+                <span class="app-brand-logo demo fs-2  pe-3" style=" display: block;
                 flex-grow: 0;
                 flex-shrink: 0;
                 overflow: hidden;
                 min-height: 1px;">
-                 <i class="fa-solid fa-house-medical" style="color:#9d926a !important"></i>
-                </span>
-                <span class="app-brand-text demo menu-text fw-bolder ms-2 fs-4 " style="flex-shrink: 0;
-                opacity: 1;
-                transition: opacity 0.15s ease-in-out; color:#9d926a">Ever Care</span>
+                
+                <span class="app-brand-text demo menu-text fw-bolder fs-4 text-center  " style="flex-shrink: 0;
+                opacity: 1; color: #5d5d5a;
+                transition: opacity 0.15s ease-in-out; font-family:fantasy; font-style: italic; font-size: large;"><i class="fa-solid fa-staff-snake me-2 fs-1"></i><span>EVER CARE</span></span>
               </a>
-  
+              
               <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
                 <i class="bx bx-chevron-left bx-sm align-middle"></i>
               </a>
             </div>
-  
+            <hr style="background-color: #9d926a !important">
             <div class="menu-inner-shadow"></div>
   
             <ul class="menu-inner py-1 text-center" style="margin: auto">
               <!-- Dashboard -->
-              <li class="menu-item  " > 
-                <a href="index.html" class="menu-link  mb-0 " style="      color: #9d926a ;
-                border-bottom: 3px solid #FFFDD1;">
-                    <i class="fa-solid fa-user-tie me-3"></i>
+              <li class="menu-item  " >
+                <a href="index.html" class="menu-link  mb-0 {{request()->segment(2) === 'dashboard' ? 'select' : '' }}" style="      color: #9d926a ;
+                border-bottom: 3px solid #9d926aa;">
+                    <i class="fa-solid fa-user-tie me-3 fs-5"></i>
                     <div data-i18n="Analytics">Dashboard</div>
                 </a>
               </li>
             
               <li class="menu-item ">
-                <a href="{{route('doctor.list')}}" wire:navigate  class="menu-link " style="      color: #9d926a ;
-                border-bottom: 3px solid #FFFDD1;">
-                    <i class="fa-solid fa-user-doctor me-3"></i>
-                  <div data-i18n="Analytics">Doctors</div>
+                <a href="{{ route('doctor.list') }}" wire:navigate  class="menu-link {{request()->segment(2) === 'doctor' ? 'select' : '' }}" style="      color: #9d926a ;
+                border-bottom: 3px solid #9d926aa;">
+                    <i class="fa-solid fa-user-doctor me-3 fs-5"></i>
+                  <div data-i18n="Analytics">doctor</div>
                 </a>
               </li>
               <li class="menu-item ">
-                <a href="{{route('staff.add')}}" wire:navigate  class="menu-link " style="      color: #9d926a ;
-                border-bottom: 3px solid #FFFDD1;">
-                    <i class="fa-solid fa-user-doctor me-3"></i>
+                <a href="{{ route('staff.add') }}" wire:navigate  class="menu-link {{request()->segment(2) === 'staff' ? 'select' : '' }}" style="      color: #9d926a ;
+                border-bottom: 3px solid #9d926aa;">
+                    <i class="fa-solid fa-user-nurse me-3 fs-5"></i>
                   <div data-i18n="Analytics">Staff</div>
+                </a>
+              </li>
+              <li class="menu-item ">
+                <a href="{{route('pharamcy.list')}}" wire:navigate  class="menu-link {{request()->segment(2) === 'pharmacy' ? 'select' : '' }}" style="      color: #9d926a ;
+                border-bottom: 3px solid #9d926aa;">
+                    <i class="fa-solid fa-pills me-3 fs-5"></i>
+                  <div data-i18n="Analytics">Medicine</div>
                 </a>
               </li>
   
@@ -210,9 +251,9 @@
           <div class="layout-page ">
             <!-- Navbar -->
   
-            <nav 
+            <nav
               class="layout-navbar   container-xxl navbar navbar-expand-xl navbar-detached align-items-center"
-              id="layout-navbar" style="background-color:#F6E8B1 !important; color:#9d926a !important" 
+              id="layout-navbar" style="background-color:#faf8e3 !important; color:#9d926a !important"
             >
               <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
                 <a class="nav-item nav-link px-0 me-xl-4" href="#">
@@ -229,54 +270,56 @@
   
                   <!-- User -->
                   <li class="nav-item ">
-                    <div  class="d-block bg-black" id="hello1" > 
-  
-                      <div class="avatar avatar-online d-block  ">
+                    <div  class="d-block" id="hello1" >
+                      <div class="avatar avatar-online   ">
                         <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                       </div>
                     </div>
-                    <ul class="dropdown-menu2 d-none card" style="margin-top:300px">
-                      <li>
-                        <a class="dropdown-item" href="#">
-                          <div class="d-flex">
-                            <div class="flex-shrink-0 me-3">
-                              <div class="avatar avatar-online">
-                                <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                    <div class="card dropdown-menu2  d-none" style="margin-top:300px;">
+                      <ul class=" ps-0 "  style = "list-style-type:none; margin:auto !important" >
+                        <li class=" ms-0">
+                          <a class="dropdown-item" href="#">
+                            <div class="d-flex">
+                              <div class="flex-shrink-0 me-3">
+                                <div class="avatar avatar-online">
+                                  <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                                </div>
+                              </div>
+                              <div class="flex-grow-1">
+                                <span class="fw-semibold d-block">John Doe</span>
+                                <small class="text-muted">Admin</small>
                               </div>
                             </div>
-                            <div class="flex-grow-1">
-                              <span class="fw-semibold d-block">John Doe</span>
-                              <small class="text-muted">Admin</small>
-                            </div>
-                          </div>
-                        </a>
-                      </li>
-                      <li>
-                        <div class="dropdown-divider"></div>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#">
-                          <i class="bx bx-user me-2"></i>
-                          <span class="align-middle">My Profile</span>
-                        </a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="#">
-                          <i class="bx bx-cog me-2"></i>
-                          <span class="align-middle">Settings</span>
-                        </a>
-                      </li>
-                      
-                      <li>
-                        <div class="dropdown-divider"></div>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="auth-login-basic.html">
-                          <i class="bx bx-power-off me-2"></i>
-                          <span class="align-middle">Log Out</span>
-                        </a>
-                      </li>
-                    </ul>
+                          </a>
+                        </li>
+                        <li>
+                          <div class="dropdown-divider"></div>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#">
+                            <i class="bx bx-user me-2"></i>
+                            <span class="align-middle">My Profile</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="#">
+                            <i class="bx bx-cog me-2"></i>
+                            <span class="align-middle">Settings</span>
+                          </a>
+                        </li>
+                        
+                        <li>
+                          <div class="dropdown-divider"></div>
+                        </li>
+                        <li>
+                          <a class="dropdown-item" href="auth-login-basic.html">
+                            <i class="bx bx-power-off me-2"></i>
+                            <span class="align-middle">Log Out</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                    
                   </li>
                   <!--/ User -->
                 </ul>
@@ -286,7 +329,7 @@
             <!-- / Navbar -->
   
             <!-- Content wrapper -->
-            <div class="content-wrapper " style="background-color: #FFFEF2">
+            <div class="content-wrapper " >
               <!-- Content -->
   
               <div class="container-xxl flex-grow-1 ">
@@ -300,7 +343,7 @@
                 <!--/ Layout Demo -->
               </div>
               <!-- / Content -->
-              <footer class="content-footer footer bg-white p-3 mt-3 m-4 rounded shadow" style="background-color:#F6E8B1 !important; color:#9d926a !important" >
+              <footer class="content-footer footer bg-white p-3 mt-3 m-4 rounded shadow" style="background-color:#faf8e3 !important; color:#9d926a !important" >
                 <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
                   <div class="mb-2 mb-md-0">
                     ©
@@ -349,14 +392,15 @@
       @livewireScripts()
       {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" data-navigate-track integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script> --}}
 
-    <script src="{{asset('admin/assets/vendor/libs/jquery/jquery.js')}}" data-navigate-track></script>
-    <script src="{{asset('admin/assets/vendor/libs/popper/popper.js')}}" data-navigate-track></script>
+    <script src="{{ asset('admin/assets/vendor/libs/jquery/jquery.js') }}" data-navigate-track></script>
+    <script src="{{ asset('admin/assets/vendor/libs/popper/popper.js') }}" data-navigate-track></script>
     {{-- <script src="{{asset('admin/assets/vendor/js/bootstrap.js')}}" data-navigate-track></script> --}}
-    <script src="{{asset('admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js')}}" data-navigate-track></script>
+    <script src="{{ asset('admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}" data-navigate-track>
+    </script>
 
-    <script src="{{asset('admin/assets/vendor/js/menu.js')}}"  data-navigate-track></script>
+    <script src="{{ asset('admin/assets/vendor/js/menu.js') }}" data-navigate-track></script>
     
-    <script src="{{asset('admin/assets/js/main.js')}}" data-navigate-track></script>
+    <script src="{{ asset('admin/assets/js/main.js') }}" data-navigate-track></script>
 
 
 

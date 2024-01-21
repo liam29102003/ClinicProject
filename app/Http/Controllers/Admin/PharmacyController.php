@@ -20,4 +20,8 @@ class PharmacyController extends Controller
     {
         return view('admin.pharmacy.add');
     }
+    public function edit(Pharmacy $pharmacy)
+    {
+        return view('admin.pharmacy.edit',compact('pharmacy'));
+    }
 }

@@ -68,6 +68,7 @@ class MedicineEdit extends Component
 
         if($m->save()){
         session()->flash('status', 'Successfully updated.');
+        return $this->redirect('/admin/pharmacy/list',navigate:true);
         }
         else{
             session()->flash('status', 'Fail to update.');

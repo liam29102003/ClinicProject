@@ -20,7 +20,7 @@ class MedicineCreate extends Component
     #[Validate('required|min:3')]
 
     public $quantity;
-    #[Validate('required|min:3')]
+    #[Validate('required|image|mimes:jpeg,png,jpg,gif|max:2048')]
 
 
     public $image;
@@ -61,6 +61,7 @@ class MedicineCreate extends Component
         session()->flash('status', 'Doctor successfully added.');
 
         $this->reset();
+        return $this->redirect('/pharmacy/medicine/list',navigate:true);
     }
     public function render()
     {

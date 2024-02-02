@@ -31,7 +31,7 @@
                 </div>
 
                 <div x-show="open">
-                    <form wire:submit.prevent="store">
+                    <form wire:submit.prevent="@if($text === 'Add') store @else updateSchedule({{$id}}) @endif">
                         @csrf
                         <table class="table">
                             <tr>
@@ -40,6 +40,7 @@
                                 <td>
                                     <select name="" wire:model='day' id=""
                                         class="form-select form-select-md mb-2 ">
+                                        <option value="">Choose Date</option>
                                         <option value="Monday">Monday</option>
                                         <option value="Tuesday">Tuesday</option>
                                         <option value="Wednesday">Wednesday</option>
@@ -67,16 +68,27 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td colspan="3" class="text-center border-0">
-                                    <button type="submit" class="btn btn-primary  d-flex align-items-center"
+                                <td  class="text-center border-0 d-flex">
+                                    <button type="submit" class="btn btn-primary me-2  d-flex align-items-center"
                                         style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
-                                        <div>Add</div>
+                                        <div>{{$text}}</div>
 
                                         <div class="spinner-border ms-2" wire:loading wire:target='' role="status">
                                             <span class="visually-hidden">Loading...</span>
                                         </div>
                                     </button>
+                                   
                                 </td>
+                                <td></td>
+                                @if($text === 'edit')
+                                <td>
+                                <button type="button" wire:click='change' class="btn btn-primary  d-flex align-items-center"
+                                style="background:#9d926a; color:#fffdd2; border-color:#9d926a !important ">
+                                <div>Cancel</div>
+                                
+                            </button>
+                        </td>
+                                @endif
                             </tr>
                         </table>
 
@@ -107,7 +119,7 @@
                             <tr>
                                 <th width="30%">Experience</th>
                                 <td width="2%">:</td>
-                                <td>10 years</td>
+                                <td>{{$doctor->Exp}} years</td>
                             </tr>
                             <tr>
                                 <th width="30%">Gender</th>
@@ -120,7 +132,7 @@
                                 <td >
                                     @foreach ($schedules as $schedule)
                                         <p class="mb-0">{{ $schedule->day }}:{{ $schedule->from }} -
-                                            {{ $schedule->to }} <i x-show="open" class="fa-sharp fa-solid fa-circle-minus text-danger" wire:click='delete({{$schedule->id}})'></i></p>
+                                            {{ $schedule->to }} <i x-show="open" class="fa-sharp me-1 fa-solid fa-circle-minus text-danger" wire:click='delete({{$schedule->id}})'></i><i x-show="open" class="fa-sharp fa-solid fa-pencil text-secondary" wire:click='edit({{$schedule->id}})'></i></p>
                                     @endforeach
                                 </td>
                                                                 </tr>

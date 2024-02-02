@@ -185,7 +185,7 @@
             <ul class="menu-inner py-1 text-center" style="margin: auto">
               <!-- Dashboard -->
               <li class="menu-item  " >
-                <a href="index.html" class="menu-link  mb-0 {{request()->segment(2) === 'dashboard' ? 'select' : '' }}" style="      color: #9d926a ;
+                <a href="{{route('dashboard')}}" class="menu-link  mb-0 {{request()->segment(2) === 'dashboard' ? 'select' : '' }}" style="      color: #9d926a ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-user-tie me-3 fs-5"></i>
                     <div data-i18n="Analytics">Dashboard</div>
@@ -200,7 +200,7 @@
                 </a>
               </li>
               <li class="menu-item ">
-                <a href="{{ route('staff.add') }}" wire:navigate  class="menu-link {{request()->segment(2) === 'staff' ? 'select' : '' }}" style="      color: #9d926a ;
+                <a href="{{ route('staff.list') }}" wire:navigate  class="menu-link {{request()->segment(2) === 'staff' ? 'select' : '' }}" style="      color: #9d926a ;
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-user-nurse me-3 fs-5"></i>
                   <div data-i18n="Analytics">Staff</div>
@@ -211,6 +211,13 @@
                 border-bottom: 3px solid #9d926aa;">
                     <i class="fa-solid fa-pills me-3 fs-5"></i>
                   <div data-i18n="Analytics">Medicine</div>
+                </a>
+              </li>
+              <li class="menu-item ">
+                <a href="{{route('finance.expense.list')}}" wire:navigate  class="menu-link {{request()->segment(2) === 'finance' ? 'select' : '' }}" style="      color: #9d926a ;
+                border-bottom: 3px solid #9d926aa;">
+                    <i class="fa-solid fa-coins me-3"></i>
+                  <div data-i18n="Analytics">Finance</div>
                 </a>
               </li>
   
@@ -272,7 +279,7 @@
                   <li class="nav-item ">
                     <div  class="d-block" id="hello1" >
                       <div class="avatar avatar-online   ">
-                        <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                        <img src="{{asset('admin/assets/img/avatars/1.png')}}" alt class="w-px-40 h-auto rounded-circle" />
                       </div>
                     </div>
                     <div class="card dropdown-menu2  d-none" style="margin-top:300px;">
@@ -282,7 +289,7 @@
                             <div class="d-flex">
                               <div class="flex-shrink-0 me-3">
                                 <div class="avatar avatar-online">
-                                  <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                                  <img src="{{asset('admin/assets/img/avatars/1.png')}}" alt class="w-px-40 h-auto rounded-circle" />
                                 </div>
                               </div>
                               <div class="flex-grow-1">

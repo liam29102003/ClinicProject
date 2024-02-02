@@ -4,31 +4,54 @@ namespace App\Livewire;
 
 use App\Models\Staff;
 use Livewire\Component;
-use Illuminate\Support\Facades\Hash;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Validate;
+use Illuminate\Support\Facades\Hash;
 
 class StaffCreate extends Component
 {
     use WithFileUploads;
+    #[Validate('required|min:3')]
+
     public $name;
+    #[Validate('required|min:3')]
+
     public $email;
+    #[Validate('required|min:3')]
+
     public $password  = "EverCareStaff";
+    #[Validate('required|min:3')]
+
     public $phone;
+    #[Validate('required|min:3')]
+
     public $address;
+    #[Validate('required|min:3')]
+
     public $gender;
+    #[Validate('required|min:3')]
+
     public $dob;
+    #[Validate('required|image|mimes:jpeg,png,jpg,gif|max:2048')]
+
     public $image;
+    #[Validate('required|min:3')]
+
     public $role;
+    #[Validate('required|min:3')]
+
     public $qualification;
-    public $from;
-    public $to;
+    #[Validate('required|min:3')]
+
     public $note;
+    #[Validate('required|min:3')]
+
     public $salary;
   
     public function save()
     {
-        
-        // $validated = $this->validate();
+        // dd($this->role);
+        $validated = $this->validate();
         $hashedPassword = Hash::make($this->password);
         if($this->image)
         $path = $this->image->store('images', 'public');
@@ -45,11 +68,8 @@ class StaffCreate extends Component
                 'phone' => $this->phone,
                 'address' => $this->address,
                 'role' => $this->role,
-                'from' => $this->from,
-                'to' => $this->to,  
                 'note' => $this->note,
                 'salary' => $this->salary,
-                'userName' => $this->name . rand(1,100),
                 'password' => $hashedPassword,
                 'image' => $path,
                 'dob' => $this->dob,
@@ -59,11 +79,11 @@ class StaffCreate extends Component
                 
             ]
         );
-        session()->flash('status', 'Doctor successfully added.');
+        session()->flash('status', 'Staff successfully added.');
         $this->image='';
-        // $this->reset('image', 'name','speciality', 'qualification', 'gender', 'bio', 'email', 'phone', 'password');
 
         $this->reset();
+        return $this->redirect(route('staff.index'), navigate:true);
     }
     public function render()
     {

@@ -96,6 +96,21 @@
 
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-3 col-form-label" for="basic-default-name"><i
+                                    class="fa-solid fa-signature me-2"></i>Exp :</label>
+
+                            <div class="col-sm-9">
+                                <input type="number" class="form-control" id="basic-default-name" name='exp'
+                                    wire:model='exp' placeholder="1-" />
+                                <small class="text-danger">
+                                    @error('exp')
+                                        {{ $message }}
+                                    @enderror
+                                </small>
+
+                            </div>
+                        </div>
 
                         <div class="row mb-3">
                             <label class="col-sm-3 col-form-label" for="basic-default-name"><i

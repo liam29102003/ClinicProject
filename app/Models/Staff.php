@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Staff extends Model
 {
     use HasFactory;
-    protected $fillable=['userName','password','name','email','phone','address','role','dob','gender','image','qualification','from','to','note','salary'];
+    protected $fillable=['password','name','email','phone','address','role','dob','gender','image','qualification','note','salary'];
 
     // public function setRole($role)
     // {

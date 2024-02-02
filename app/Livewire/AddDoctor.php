@@ -41,8 +41,9 @@ class AddDoctor extends Component
 
     public $password = 'EverCareDoctor';
     #[Validate('required|min:3')]
-
     public $image;
+    #[Validate('required|min:3')]
+    public $exp;
 
     public function save()
     {
@@ -62,18 +63,20 @@ class AddDoctor extends Component
                 'phone' => $this->phone,
                 'password' => $hashedPassword,
                 'image' => $path,
-
+                'exp' => $this->exp,
                 'created_at' => now(),
                 'updated_at' => now(),
                 
                 
             ]
         );
-        session()->flash('status', 'Doctor successfully added.');
-        $this->image='';
-        $this->reset('image', 'name','speciality', 'qualification', 'gender', 'bio', 'email', 'phone', 'password');
 
-        // $this->reset();
+        $this->image='';
+        // $this->reset('image', 'name','speciality', 'qualification', 'gender', 'bio', 'email', 'phone', 'password');
+        session()->flash('status', 'Expense added successfully');
+
+        $this->reset();
+        return $this->redirect('/admin/doctor/list',navigate:true);
 
     }
  

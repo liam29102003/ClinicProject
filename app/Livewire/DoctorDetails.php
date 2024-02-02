@@ -9,7 +9,7 @@ use Livewire\Attributes\Validate;
 
 class DoctorDetails extends Component
 {
-    
+    public $id;
     public $doctor_id;
     #[Validate('required')]
 
@@ -20,10 +20,15 @@ class DoctorDetails extends Component
     #[Validate('required|min:3')]
 
     public $from;
+    public $text="Add";
    public function mount($doctor_id)
     {
         
         $this->doctor_id = $doctor_id;
+    }
+    public function change()
+    {
+        $this->text = "Add";
     }
     public function store()
     {
@@ -36,7 +41,16 @@ class DoctorDetails extends Component
         $schedule->save();
         session()->flash('status', 'Schedule successfully added.');
         
-        return $this->redirect('/admin/doctor/details/'.$this->doctor_id,navigate:true);
+    }
+    public function updateSchedule($id)
+    {
+        $schedule = Schedule::where('id',$id)->first();
+        $schedule->day = $this->day;
+        $schedule->to = $this->to;
+        $schedule->from = $this->from;
+        $schedule->save();
+        session()->flash('status', 'Schedule successfully updated.');
+        $this->text = "Add";
     }
     
     public function delete($id)
@@ -44,8 +58,16 @@ class DoctorDetails extends Component
         Schedule::where('id',$id)->delete();
         session()->flash('status', 'Schedule successfully deleted.');
         
-        return $this->redirect('/admin/doctor/details/'.$this->doctor_id,navigate:true);    }
-    
+    }    
+    public function edit($id)
+    {
+        $schedule = Schedule::where('id',$id)->first();
+        $this->day = $schedule->day;
+        $this->to = $schedule->to;
+        $this->from = $schedule->from;
+        $this->text = "edit";
+        $this->id = $id;
+    }
     public function render()
     {
         $doctor =Doctor::where('id',$this->doctor_id)->first();

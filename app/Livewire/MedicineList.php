@@ -16,6 +16,9 @@ class MedicineList extends Component
      public $search='';
      public $orderName ="name";
      public $type = "asc";
+     public $medicine_id =[] ;
+     public $selectAll =false;
+     public $jump = 1;
     public $funName="medicineDeletedd";
 
      public function delete()
@@ -30,6 +33,11 @@ class MedicineList extends Component
  
          // You can add a confirmation message or redirect to another page if needed.
      }
+     
+    //  public function toggle()
+    //  {
+    //     $this->selectAll = !($this->selectAll);
+    //  }
     public function show()
     {
         dd($this->text2);
@@ -45,6 +53,29 @@ class MedicineList extends Component
         
         $this->orderName = $name;
         $this->type=$this->type === "asc" ? "desc" : "asc";
+    }
+   
+    public function incrementQuantity()
+    {
+        foreach($this->medicine_id as $m)
+        {
+
+            Pharmacy::where('id', $m)->increment('quantity',$this->jump);
+        }
+    }
+    public function decrementQuantity()
+    {
+        foreach($this->medicine_id as $m)
+        {
+            $medicine = Pharmacy::find($m);
+            if($medicine && $medicine->quantity > $this->jump){
+            $medicine->decrement('quantity',$this->jump);
+            }
+        }
+    }
+    public function updatedSelectAll($value)
+    {
+        $this->medicine_id = $value? Pharmacy::where('name', 'like', '%' . $this->search . '%')->pluck('id') : [];
     }
     public function render()
     {

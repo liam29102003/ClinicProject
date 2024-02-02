@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\PharmacyController;
 use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\user\PatientController;
+use App\Http\Controllers\Admin\FinanceController;
+use App\Http\Controllers\Admin\PharmacyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,11 +48,11 @@ Route::prefix('admin')->group(function () {
         Route::post('schedule/{doctor}',[DoctorController::class,'storeSchedule'])->name('doctor.storeSchedule');
     });
     Route::prefix('staff')->group(function () {
-        // Route::get('/list',[DoctorController::class,'index'])->name('doctor.list');
+        Route::get('/list',[staffController::class,'index'])->name('staff.list');
         Route::get('/add',[StaffController::class,'add'])->name('staff.add');
         // Route::post('/addDoctor',[DoctorController::class,'addDoctor'])->name('doctor.store');
-        // Route::get('/details/{doctor}',[DoctorController::class,'details'])->name('doctor.details');
-        // Route::get('/edit/{doctor}',[DoctorController::class,'edit'])->name('doctor.edit');
+        Route::get('/details/{staff}',[StaffController::class,'details'])->name('staff.details');
+        Route::get('/edit/{staff}',[StaffController::class,'edit'])->name('staff.edit');
         // Route::post('/update/{doctor}',[DoctorController::class,'update'])->name('doctor.update');
     });
     Route::prefix('pharmacy')->group(function () {
@@ -62,6 +63,22 @@ Route::prefix('admin')->group(function () {
         Route::get('/edit/{pharmacy}',[PharmacyController::class,'edit'])->name('pharmacy.edit');
         // Route::post('/update/{doctor}',[DoctorController::class,'update'])->name('doctor.update');
     });
+    Route::prefix('finance')->group(function () {
+        Route::get('/expense/add',[FinanceController::class,'expenseAdd'])->name('finance.expense.add');
+        Route::get('/expense/list',[FinanceController::class,'expenseList'])->name('finance.expense.list');
+        // Route::get('/add',[PharmacyController::class,'add'])->name('finance.add');
+        // Route::post('/addDoctor',[DoctorController::class,'addDoctor'])->name('doctor.store');
+        // Route::get('/details/{pharmacy}',[PharmacyController::class,'details'])->name('finance.details');
+        Route::get('/edit/{expense}',[FinanceController::class,'edit'])->name('finance.expense.edit');
+        // Route::post('/update/{doctor}',[DoctorController::class,'update'])->name('doctor.update');
+    });
+    
+    Route::prefix('dashboard')->group(function () {
+        Route::get('/dashboard',function () {
+            return view('admin.dashboard');
+        })->name('dashboard');
+    });
+
 });
 
 

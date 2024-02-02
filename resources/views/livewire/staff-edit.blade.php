@@ -12,7 +12,7 @@
                     <!-- <small class="text-muted float-end">Default label</small> -->
                 </div>
                 <div class="card-body">
-                    <form method="post" wire:submit='save' action="" enctype="multipart/form-data">
+                    <form method="post" wire:submit='save({{$staff->id}})' action="" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
@@ -33,8 +33,10 @@
                             @if ($image)
                                 <img style="border: 5px double; border-radius:10px " class="w-100"
                                     src="{{ $image->temporaryUrl() }}" alt="Image Preview">
+                                @else
+                                <img src="{{asset('storage/'.$staff->image)}}"  alt="">
+                                    
                             @endif
-
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-3 col-form-label" for="basic-default-name">Image :</label>
@@ -56,7 +58,7 @@
 
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="basic-default-name" name='name'
-                                    wire:model='name' placeholder="John Doe" />
+                                    wire:model='name' placeholder="John Doe" value="{{$staff->name}}" />
                                 <small class="text-danger">
                                     @error('name')
                                         {{ $message }}
@@ -74,7 +76,7 @@
 
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="basic-default-address"
-                                    placeholder="address" name='address' wire:model='address' />
+                                    placeholder="address" name='address' wire:model='address' value="{{$staff->address}}"/>
                                 <small class="text-danger">
                                     @error('address')
                                         {{ $message }}
@@ -89,7 +91,7 @@
 
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="basic-default-qa" placeholder="qualification"
-                                    name='qualification' wire:model='qualification' />
+                                    name='qualification' wire:model='qualification' value="{{$staff->qualification}}"/>
                                 <small class="text-danger">
                                     @error('qualification')
                                         {{ $message }}
@@ -104,7 +106,7 @@
 
                             <div class="col-sm-9">
                                 <input type="date" class="form-control" id="basic-default-qa" placeholder="MBBS"
-                                    name='dob' wire:model='dob' />
+                                    name='dob' wire:model='dob' value="{{$staff->dob}}"/>
                                 <small class="text-danger">
                                     @error('dob')
                                         {{ $message }}
@@ -120,7 +122,7 @@
 
                             <div class="col-sm-9">
                                 <input type="email" class="form-control" id="basic-default-name" name='email'
-                                    wire:model='email' placeholder="JohnDoe@gmail.com" />
+                                    wire:model='email' placeholder="JohnDoe@gmail.com"value="{{$staff->email}}" />
                                 <small class="text-danger">
                                     @error('email')
                                         {{ $message }}
@@ -145,10 +147,10 @@
                                                 <div class="col-sm-8  p-0 ps-1">
                                                     <select name="Role" id="role" class="form-select" wire:model='role'>
                                                         <option value="">Choose Role</option>
-                                                        <option value="Receptionist">Receptionist</option>
-                                                        <option value="Nurse">Nurse</option>
-                                                        <option value="Janitor">Janitor</option>
-                                                        <option value="Security">Security</option>
+                                                        <option value="receptionist" @if($staff->role==="receptionist") selected @endif>Receptionist</option>
+                                                        <option value="nurse" @if($staff->role==="nurse") selected @endif>Nurse</option>
+                                                        <option value="janitor" @if($staff->role==="janitor") selected @endif>Janitor</option>
+                                                        <option value="security" @if($staff->role==="security") selected @endif>Security</option>
     
                                                        </select>
                                                     <small class="text-danger">
@@ -171,9 +173,9 @@
                                                 <div class="col-sm-8 p-0 ps-1">
                                                    <select name="gender" id="gender" class="form-select" wire:model='gender'>
                                                     <option value="">Choose Gender</option>
-                                                    <option value="male">Male</option>
-                                                    <option value="female">Female</option>
-                                                    <option value="other">Other</option>
+                                                    <option value="male" @if($staff->gender==="male") selected @endif>Male</option>
+                                                    <option value="female" @if($staff->gender==="female") selected @endif>Female</option>
+                                                    <option value="other" @if($staff->gender==="other") selected @endif>Other</option>
 
                                                    </select>
                                                     <small class="text-danger">
@@ -204,7 +206,7 @@
 
                                                 <div class="col-sm-8  p-0 ps-1">
                                                     <input type="text" class="form-control" id="basic-default-name"
-                                                        name='phone' wire:model='phone' placeholder="09-*********" />
+                                                        name='phone' wire:model='phone' placeholder="09-*********"value="{{$staff->phone}}" />
                                                     <small class="text-danger">
                                                         @error('phone')
                                                             {{ $message }}
@@ -224,7 +226,7 @@
 
                                                 <div class="col-sm-8 p-0 ps-1">
                                                     <input type="number" class="form-control" id="basic-default-qa"
-                                                        placeholder="1*******" name='qualification' wire:model='salary' />
+                                                        placeholder="1*******" name='qualification' wire:model='salary' value="{{$staff->salary}}"/>
                                                     <small class="text-danger">
                                                         @error('salary')
                                                             {{ $message }}

@@ -75,10 +75,12 @@ public $image;
 
         if($d->save()){
         session()->flash('status', 'Successfully updated.');
+        return $this->redirect(route('doctor.list'), navigate:true);
         }
         else{
             session()->flash('status', 'Fail to update.');
         }
+        
     }
     public function render()
     {

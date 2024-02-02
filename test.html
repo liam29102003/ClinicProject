@@ -3,114 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doctor Profile</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900&display=swap" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
-    <!-- Font Awesome CSS -->
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css'>
-    <!-- Custom CSS -->
-    <style>
-        .profile_img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-        .doctor-profile {
-            font-family: 'Lato', sans-serif;
-            margin-top: 10px;
-        }
-        .card {
-            border-radius: 10px;
-        }
-        .rating {
-            color: #f8ce0b;
-        }
-    </style>
+    <title>Staff Profile</title>
+    <!-- Bootstrap CDN link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+    <!-- Custom CSS file -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="doctor-profile py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="card shadow-sm">
-                        <div class="card-header bg-transparent text-center">
-                            <img class="profile_img" src="https://source.unsplash.com/600x300/?doctor" alt="doctor dp">
-                            <h3>Dr. John Smith</h3>
-                            <p class="mb-0">Cardiologist</p>
-                        </div>
-                        <div class="card-body">
-                            <p class="mb-0"><strong class="pr-1">Hospital:</strong>ABC Hospital</p>
-                            <p class="mb-0"><strong class="pr-1">Experience:</strong>10 years</p>
-                            <p class="mb-0"><strong class="pr-1">Rating:</strong><span class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></span></p>
+    <div class="container">
+        <div class="row">
+            <!-- Profile card -->
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card">
+                    <img src="staff.jpg" class="card-img-top img-fluid rounded-circle" alt="Staff photo">
+                    <div class="card-body">
+                        <h4 class="card-title">John Doe</h4>
+                        <h6 class="card-subtitle mb-2 text-muted">Senior Developer</h6>
+                        <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lorem vitae nisi consequat varius.</p>
+                        <div class="card-icons">
+                            <a href="#" class="card-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="card-link"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" class="card-link"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-8">
-                    <div class="card shadow-sm">
-                        <div class="card-header bg-transparent border-0">
-                            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>General Information</h3>
-                        </div>
-                        <div class="card-body pt-0">
-                            <table class="table table-bordered">
-                                <tr>
-                                    <th width="30%">Qualification</th>
-                                    <td width="2%">:</td>
-                                    <td>MBBS, MD, FACC</td>
-                                </tr>
-                                <tr>
-                                    <th width="30%">Specialization</th>
-                                    <td width="2%">:</td>
-                                    <td>Cardiology, Interventional Cardiology, Heart Failure</td>
-                                </tr>
-                                <tr>
-                                    <th width="30%">Awards</th>
-                                    <td width="2%">:</td>
-                                    <td>Best Doctor Award, Excellence in Research Award, Young Investigator Award</td>
-                                </tr>
-                                <tr>
-                                    <th width="30%">Memberships</th>
-                                    <td width="2%">:</td>
-                                    <td>American College of Cardiology, American Heart Association, European Society of Cardiology</td>
-                                </tr>
-                                <tr>
-                                    <th width="30%">Publications</th>
-                                    <td width="2%">:</td>
-                                    <td>Smith J, et al. A novel approach to treat coronary artery disease. Journal of Cardiology. 2023; 12(3): 123-128.</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                    <div style="height: 26px"></div>
-                    <div class="card shadow-sm">
-                        <div class="card-header bg-transparent border-0">
-                            <h3 class="mb-0"><i class="fas fa-map-marked-alt pr-1"></i>Contact Information</h3>
-                        </div>
-                        <div class="card-body pt-0">
-                            <table class="table table-bordered">
-                                <tr>
-                                    <th width="30%">Phone</th>
-                                    <td width="2%">:</td>
-                                    <td>+1 234 567 890</td>
-                                </tr>
-                                <tr>
-                                    <th width="30%">Email</th>
-                                    <td width="2%">:</td>
-                                    <td>john.smith@abchospital.com</td>
-                                </tr>
-                                <tr>
-                                    <th width="30%">Address</th>
-                                    <td width="2%">:</td>
-                                    <td>123 Main Street, New York, NY 10001</td>
-                                </tr>
-                            </table>
-                        </div>
+            </div>
+            <!-- Contact card -->
+            <div class="col-lg-8 col-md-6 col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Contact Me</h4>
+                        <form>
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter your name.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter a valid email.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="3" required></textarea>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter a message.
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Bootstrap CDN script -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome CDN script -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <!-- Custom JS file -->
+    <script src="script.js"></script>
 </body>
 </html>

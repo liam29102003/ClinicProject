@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\Admin\DoctorController;
-use App\Http\Controllers\user\PatientController;
+use App\Http\Controllers\Admin\PatientController;
 use App\Http\Controllers\Admin\FinanceController;
 use App\Http\Controllers\Admin\PharmacyController;
 
@@ -71,6 +71,14 @@ Route::prefix('admin')->group(function () {
         // Route::get('/details/{pharmacy}',[PharmacyController::class,'details'])->name('finance.details');
         Route::get('/edit/{expense}',[FinanceController::class,'edit'])->name('finance.expense.edit');
         // Route::post('/update/{doctor}',[DoctorController::class,'update'])->name('doctor.update');
+    });
+    Route::prefix('patient')->group(function () {
+        Route::get('/list',[PatientController::class,'list'])->name('patient.list');
+        Route::get('/add',[PatientController::class,'add'])->name('patient.add');
+        Route::post('/addPatient',[PatientController::class,'addPatient'])->name('patient.store');
+        Route::get('/details/{patient}',[PatientController::class,'details'])->name('patient.details');
+        Route::get('/edit/{patient}',[PatientController::class,'edit'])->name('patient.edit');
+        Route::post('/update/{patient}',[PatientController::class,'update'])->name('patient.update');
     });
     
     Route::prefix('dashboard')->group(function () {

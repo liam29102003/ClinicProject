@@ -2,13 +2,14 @@
 
 namespace App\Livewire;
 
-use App\Models\Staff;
+use App\Models\Patient;
+use DateTime;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class StaffList extends Component
+class PatientList extends Component
 {
-    
+     
     use  WithPagination;
     // #[Reactive]
     public $funName="delete";
@@ -22,7 +23,7 @@ class StaffList extends Component
      public function delete()
      {
          // dd($this->text2);
-         $post = Staff::find($this->text2);
+         $post = Patient::find($this->text2);
  
          if ($post) {
              $post->delete();
@@ -47,13 +48,14 @@ class StaffList extends Component
         $this->orderName = $name;
         $this->type=$this->type === "asc" ? "desc" : "asc";
     }
+    
     public function render()
     {
-        return view('livewire.staff-list')->with(
-            'staffs',
-            Staff::orderBy($this->orderName, $this->type)
+        
+        return view('livewire.patient-list')->with(
+            'patients',
+            Patient::orderBy($this->orderName, $this->type)
             ->where('name', 'like', '%'.$this->search.'%')
-            ->paginate(6)
-        );
+            ->paginate(6));
     }
 }

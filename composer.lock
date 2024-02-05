@@ -2013,11 +2013,11 @@
             ],
             "support": {
                 "issues": "https://github.com/thephpleague/flysystem/issues",
-<<<<<<< HEAD
+// <<<<<<< HEAD
                 "source": "https://github.com/thephpleague/flysystem/tree/3.23.1"
-=======
+// =======
                 "source": "https://github.com/thephpleague/flysystem/tree/3.24.0"
->>>>>>> 61cf5612ba609fdc1725cde0a197a96a57cac1b1
+// >>>>>>> 61cf5612ba609fdc1725cde0a197a96a57cac1b1
             },
             "funding": [
                 {
@@ -2029,11 +2029,11 @@
                     "type": "github"
                 }
             ],
-<<<<<<< HEAD
-            "time": "2024-01-26T18:42:03+00:00"
-=======
+// <<<<<<< HEAD
+            "time": "2024-01-26T18:42:03+00:00",
+// =======
             "time": "2024-02-04T12:10:17+00:00"
->>>>>>> 61cf5612ba609fdc1725cde0a197a96a57cac1b1
+// >>>>>>> 61cf5612ba609fdc1725cde0a197a96a57cac1b1
         },
         {
             "name": "league/flysystem-local",

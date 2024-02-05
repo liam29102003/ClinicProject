@@ -17,7 +17,7 @@ use App\Http\Controllers\Admin\PharmacyController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+Route::get('/love',[DoctorController::class,'love'])->name('love');
 Route::get('/', function () {
     return view('welcome');
 });

@@ -57,3 +57,4 @@ function convertToBurmese(number) {
     const burmeseNumerals = ['၀', '၁', '၂', '၃', '၄', '၅', '၆', '၇', '၈', '၉'];
     return number.toString().split('').map(digit => burmeseNumerals[digit]).join('');
 }
+

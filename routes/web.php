@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DoctorController;
 use App\Http\Controllers\user\PatientController;
 use App\Http\Controllers\Admin\FinanceController;
 use App\Http\Controllers\Admin\PharmacyController;
+use App\Http\Controllers\AppointmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,13 @@ use App\Http\Controllers\Admin\PharmacyController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+Route::get('/login',function(){
+    return view('login');
+})->name('login_page');
+Route::get('/new/appointment',[AppointmentController::class,'newAppointment'])->name('new#appointment');
+Route::get('/doctor/list',[DoctorController::class,'doctorListPage'])->name('doctor#list');
+Route::get('/doctor/detailPage',[DoctorController::class,'doctorDetailPage'])->name('doctor#detailPage');
 
 Route::middleware([
     'auth:sanctum',
@@ -79,6 +86,10 @@ Route::prefix('admin')->group(function () {
         })->name('dashboard');
     });
 
+});
+
+Route::prefix('patient')->group(function(){
+    Route::get('/dashboard',[PatientController::class,'dashboard'])->name('patient#dashboard');
 });
 
 

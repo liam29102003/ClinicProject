@@ -66,8 +66,6 @@ class AddDoctor extends Component
                 'exp' => $this->exp,
                 'created_at' => now(),
                 'updated_at' => now(),
-                
-                
             ]
         );
 

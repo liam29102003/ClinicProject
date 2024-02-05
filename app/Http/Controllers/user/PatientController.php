@@ -33,4 +33,13 @@ class PatientController extends Controller
     {
         return view('admin.doctor_create');
     }
+
+    // for patient dashboard
+    public function dashboard(){
+        return view('patient.dashboard');
+    }
+
+    public function appointment_form(){
+        return view('patient.appointmentForm');
+    }
 }

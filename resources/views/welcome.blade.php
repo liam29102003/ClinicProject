@@ -1,96 +1,210 @@
-{{-- <a href="{{route('login')}}">Login</a> --}}
-<!DOCTYPE html>
-<html lang="en">
+@extends('master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css"
-    rel="stylesheet"
-  />     
-  @livewireStyles
+@section('content')
 
-    {{-- <link rel="stylesheet" href="{{ asset('user/assets/doctor.css') }}"> --}}
-    <link rel="stylesheet" href="{{ asset('user/assets/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('user/assets/Footer.css') }}">
+<div class="container-fluid  mt-5 mt-lg-0 pt-5 pt-lg-0 mb-5 mb-lg-0   " style="height: 100vh;" >
+    <div class="row h-100">
+        <div class="leftHero col-12 col-lg-5  d-flex flex-column justify-content-center align-items-center ">
+            <h4 class="text-start">သင်ရဲ့ ယုံကြည်အားထားရာ</h4>
+            <h1 class="text-start brand" style="text-shadow: black 1px 0 3px; font-size:60px"><i class="fa-solid fa-staff-snake me-2 "></i>EVER CARE</h1>
+            <p class="text-center">ကျန်းမာသော ခန္ဓာကိုယ်ဖြင့် ပျော်ရွှင်သော ဘဝကို တည်ဆောက်ပါ။</p>
+            <button class="btn ownBtn mt-3">ရက်ချိန်းယူပါ&nbsp;<i class="fa-regular fa-calendar"></i></button>
+       </div>
+       <div class="rightHero col-12 col-lg-7  text-center " >
+    
+        <img src="{{asset('master/images/hero.png')}}" alt="" class="w-100  h-100"  >
+       </div>
+    </div>
+  
+   
+</div>
+<div class="container-fluid  d-flex justify-content-between " style="background-color:  #000000aa;margin-top: 160px;">
+<div class="w-25 text-center ms-3">
+    <img src="{{asset('master/images/patient.png')}}" class="w-75 " style="border-radius: 50%;position: relative;margin-top: -40%;">
+    <h3 class="" style="color:#fffdd2">Patients</h3>
+    <h4 class="" style="color:#fffdd2">100+</h4>
+</div>
+<div class="w-25 text-center">
+    <img src="{{asset('master/images/doctor.png')}}" class="w-75 " style="border-radius: 50%;position: relative;margin-top: -40%;">
+    <h3 class="" style="color:#fffdd2">Doctors</h3>
+    <h4 class="" style="color:#fffdd2">30+</h4>
+</div>
+<div class="w-25 text-center me-3">
+    <img src="{{asset('master/images/receptionist.png')}}" class="w-75 " style="border-radius: 50%;position: relative;margin-top: -40%;">
+    <h3 class="" style="color:#fffdd2">Staffs</h3>
+    <h4 class="" style="color:#fffdd2">40+</h4>
+</div>
+</div>
+<!-- End of Hero section  -->
 
-</head>
+<!-- Start of service section -->
+<div class="mt-5 mb-5 container">
+<h4 class="title">
+    ရရှိနိုင်သောကျန်းမာရေးဝန်ဆောင်မှုများ
+    <div class="titleLine"></div>
+</h4>
+  
 
-<body>
-    <livewire:navbar>
-        <div class="hero" style="background-image: url('user/assets/images/background.jpg')">
-            <div class="text-white">.</div>
-            <div class="container1 container text-center text-lg-start">
-                <div class="row">
-                    <div class="col-lg-6 ">
-                        <p class="p1 text-black">သင်ရဲ့ ယုံကြည်အားထားရာ</p>
-                        <h2 class="" style="text-shadow: white 1px 0 10px; font-size:70px">EVER CARE</h2>
-                        <p class="ptext text-dark">ကျန်းမာသော ခန္ဓာကိုယ်ဖြင့် ပျော်ရွှင်သော ဘဝကို တည်ဆောက်ပါ။ </p>
-                        <a href='/dashboard' wire:navigate class="btn2 shadow">ရက်ချိန်းယူရန်</a>
+  <section class="pt-5 pb-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h3 class="mb-3"></h3>
+            </div>
+            <div class="col-6 text-end">
+                <a class="btn btn-dark mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="btn btn-dark mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carouselExampleIndicators2" class="carousel slide w-100" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <!-- item -->
+                        <div class="carousel-item active w-100">
+                            <div class="row">
+
+                                <div class="col-md-4 mb-3">
+                                    <div class="card shadow">
+                                        <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">X-ray</h5>
+                                            <p class="card-text">၂၄ နာရီ</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card shadow">
+                                        <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=42b2d9ae6feb9c4ff98b9133addfb698">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">အထွေထွေဆရာဝန်များ</h5>
+                                            <p class="card-text">၂၄ နာရီ</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card shadow">
+                                        <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=3d2e8a2039c06dd26db977fe6ac6186a">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">အထွေထွေဆရာဝန်များ</h5>
+                                            <p class="card-text">၂၄ နာရီ</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="carousel-item  w-100">
+                            <div class="row">
+
+                                <div class="col-md-4 mb-3">
+                                    <div class="card shadow">
+                                        <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">X-ray</h5>
+                                            <p class="card-text">၂၄ နာရီ</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card shadow">
+                                        <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=42b2d9ae6feb9c4ff98b9133addfb698">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">အထွေထွေဆရာဝန်များ</h5>
+                                            <p class="card-text">၂၄ နာရီ</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card shadow">
+                                        <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=3d2e8a2039c06dd26db977fe6ac6186a">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">အထွေထွေဆရာဝန်များ</h5>
+                                            <p class="card-text">၂၄ နာရီ</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="carousel-item w-100">
+                            <div class="row">
+
+                                <div class="col-md-4 mb-3">
+                                    <div class="card shadow">
+                                        <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1532781914607-2031eca2f00d?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=7c625ea379640da3ef2e24f20df7ce8d">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">X-ray</h5>
+                                            <p class="card-text">၂၄ နာရီ</p>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card shadow">
+                                        <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=42b2d9ae6feb9c4ff98b9133addfb698">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">အထွေထွေဆရာဝန်များ</h5>
+                                            <p class="card-text">၂၄ နာရီ</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="card shadow">
+                                        <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=3d2e8a2039c06dd26db977fe6ac6186a">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title">အထွေထွေဆရာဝန်များ</h5>
+                                            <p class="card-text">၂၄ နာရီ</p>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--  -->
+                        <!-- item -->
+                        
+                        <!--  -->
                     </div>
                 </div>
-
             </div>
+
+            
         </div>
 
-        <div class="container-fluid">
-            <!-- <div class="row nav" style="height: 60px">Nav Bar</div>
-            <hr />
-            <div class="row hero" style="height: 400px">
-              <div class="col-lg-6 border">Text</div>
-              <div class="col-lg-6 border">Image</div>
-            </div> -->
-            <livewire:service>
-            <hr class="mb-0 ">
-            <div class="row about text-center mb-5 mt-0 pt-3 pb-4" style="height:auto">
-              <!-- <h3 class="mb-5">About us</h3> -->
-              <div class="col-lg-5 mb-5 mb-lg-0"><div class=" shadow img card">
-                <img src="{{asset('user/assets/images/hospital.png')}}" width="300" alt="" class="shadow bg-light"></div>
-              </div>
-              <div class="col-lg-5 d-flex align-items-center  text-start fs-5 ">
-                
-                Ever Care Clinic သည် 2023 ခုနှစ် မတ်လ 18 ရက်နေ့တွင် ဖွင့်လှစ်ခဲ့သော 3 ထပ်တိုက်  အဆောက်အဦး ဖြစ်ပါသည်။ ကျွန်ုပ်တို့သည် ခေတ်မီ ဆေးဘက်ဆိုင်ရာ စက်ကိရိယာများဖြင့် ဘက်စုံဆေးဘက်ဆိုင်ရာ ဝန်ဆောင်မှုကို ဆောင်ရွက်ပေးပါသည်။ သက်ဆိုင်ရာဌာနအသီးသီးရှိ ကျွမ်းကျင်ဝန်ထမ်းများမှ ကျွမ်းကျင်သော ကျွမ်းကျင်ဝန်ထမ်းများမှ ကောင်းစွာလေ့ကျင့်ထားသော နေထိုင်မှုဆိုင်ရာဆရာဝန်များ၊ သူနာပြုများနှင့် ကျွမ်းကျင်ဝန်ထမ်းများမှ ပံ့ပိုးပေးသော ကျွန်ုပ်တို့၏လူနာအား အမြန်ထိရောက်သော ကုသမှုကို ကျွန်ုပ်တို့ အလေးထားပါသည်။</div>
-              <div class="col-1"></div>
-            </div>
-            <div class="row numbers text-center mb-5">
-              <div class="col-12 col-md-4 col-lg-2 offset-lg-2 mb-2" >
-                <div class="card border">
-                  <img src="{{asset('user/assets/images/patient.png')}}" alt="" width="100" style="margin: auto;">
-                  <p class="patients fs-1 mb-0"></p>
-                  <h6 class="text-dark mb-4">ကုသပေးခဲ့သောလူနာများ</h6></div>
-                
-              </div>
-              <div class="col-1 d-md-block d-none"></div>
-              <div class="col-12 col-md-4 col-lg-2 mb-2">
-                <div class="card border">
-                  <img src="{{asset('user/assets/images/doctor.png')}}" alt="" width="100" style="margin: auto;">
-                  <p class="doctors fs-1 mb-0"></p>
-                  <h6 class="text-dark mb-4">ဆရာဝန်များ</h6></div>
-              </div>
-              <div class="col-1 d-md-block d-none"></div>
-      
-              <div class="col-12 col-md-4 col-lg-2 ">
-                <div class="card border">
-                  <img src="{{asset('user/assets/images/receptionist.png')}}" alt="" width="100" style="margin: auto;">
-                  <p class="staff fs-1 mb-0"></p>
-                  <h6 class="text-dark mb-4">ဝန်ထမ်းများ</h6></div>
-              </div>          
-              </div>
-              <!-- <div class="col-3"></div> -->
-            </div>
-            <livewire:articles>
-            <livewire:review>
-           
-          </div>
-          @include('user.footer')
-          @livewireScripts
-          <script src="{{asset('user/assets/navbar.js')}}"></script>
-          <script src="{{asset('user/assets/script.js')}}"></script>
+        
+    </div>
+</section>
 
-</body>
 
-</html>
+</div>
+<!-- end of service -->
+<div class="container-fluid d-flex abContainer flex-wrap" style="background-color: #5d5d5a;color:white">
+    <div class="d-flex flex-column align-items-center justify-content-center aboutImage">
+        <div class=" m-1 absolute" style="">
+            <img src="{{asset('master/images/clinic.jpg')}}" style="border-radius: 25% 10%;" class="col-8 offset-2 abImg" alt="">
+        </div>
+    </div>
+<div class=" about py-5  pe-md-5" >
+    Ever Care Clinic သည် 2023 ခုနှစ် မတ်လ 18 ရက်နေ့တွင် ဖွင့်လှစ်ခဲ့သော 3 ထပ်တိုက် အဆောက်အဦး 
+    ဖြစ်ပါသည်။ ကျွန်ုပ်တို့သည် ခေတ်မီ ဆေးဘက်ဆိုင်ရာ စက်ကိရိယာများဖြင့် ဘက်စုံဆေးဘက်ဆိုင်ရာ ဝန်ဆောင်မှုကို 
+    ဆောင်ရွက်ပေးပါသည်။ သက်ဆိုင်ရာဌာနအသီးသီးရှိ ကျွမ်းကျင်ဝန်ထမ်းများမှ ကျွမ်းကျင်သော ကျွမ်းကျင်ဝန်ထမ်းများမှ 
+    ကောင်းစွာလေ့ကျင့်ထားသော နေထိုင်မှုဆိုင်ရာဆရာဝန်များ၊ သူနာပြုများနှင့် ကျွမ်းကျင်ဝန်ထမ်းများမှ 
+    ပံ့ပိုးပေးသော ကျွန်ုပ်တို့၏လူနာအား အမြန်ထိရောက်သော ကုသမှုကို ကျွန်ုပ်တို့ အလေးထားပါသည်။
+</div>
+</div>
+
+@endsection
